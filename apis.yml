@@ -35,7 +35,9 @@ apis:
       - Microservices
       - Java
       - Messaging
-    properties: []
+    properties:
+      - type: OpenAPI
+        url: https://raw.githubusercontent.com/api-evangelist/axon-framework/refs/heads/main/openapi/axon-server-api.yml
 common:
   - type: Website
     url: https://www.axoniq.io/
