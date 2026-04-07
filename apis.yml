@@ -8,12 +8,12 @@ description: >-
 type: Index
 image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
 tags:
-  - Event-Driven
   - CQRS
   - Event Sourcing
-  - Microservices
+  - Event-Driven
   - Java
   - Messaging
+  - Microservices
 url: >-
   https://raw.githubusercontent.com/api-evangelist/axon-framework/refs/heads/main/apis.yml
 created: '2026-03-26'
@@ -29,12 +29,12 @@ apis:
       query handling in distributed systems.
     humanURL: https://www.axoniq.io/products/axon-framework
     tags:
-      - Event-Driven
       - CQRS
       - Event Sourcing
-      - Microservices
+      - Event-Driven
       - Java
       - Messaging
+      - Microservices
     properties:
       - type: OpenAPI
         url: https://raw.githubusercontent.com/api-evangelist/axon-framework/refs/heads/main/openapi/axon-server-api.yml
