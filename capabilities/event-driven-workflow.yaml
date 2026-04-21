@@ -1,0 +1,60 @@
+naftiko: "1.0.0-alpha1"
+info:
+  label: Axon Framework Event-Driven Workflow
+  description: Workflow capability for managing Axon Server applications, contexts, and event streaming.
+  tags:
+    - CQRS
+    - Event Sourcing
+    - Event-Driven
+    - Microservices
+  created: "2026-04-19"
+  modified: "2026-04-19"
+binds:
+  - namespace: env
+    keys:
+      AXON_SERVER_URL: AXON_SERVER_URL
+      AXON_TOKEN: AXON_TOKEN
+capability:
+  consumes:
+    - import: axon-server
+      location: ./shared/axon-server.yaml
+  exposes:
+    - type: rest
+      port: 8080
+      namespace: workflow-api
+      resources:
+        - label: List Applications
+          method: GET
+          path: /applications
+        - label: Create Application
+          method: POST
+          path: /applications
+        - label: Delete Application
+          method: DELETE
+          path: /applications/{name}
+        - label: List Contexts
+          method: GET
+          path: /contexts
+        - label: Create Context
+          method: POST
+          path: /contexts
+        - label: Get Metrics
+          method: GET
+          path: /metrics
+    - type: mcp
+      port: 9090
+      namespace: workflow-mcp
+      transport: http
+      tools:
+        - name: list_applications
+          description: List all registered Axon applications
+        - name: create_application
+          description: Create a new Axon application registration
+        - name: delete_application
+          description: Delete an Axon application registration
+        - name: list_contexts
+          description: List all Axon contexts
+        - name: create_context
+          description: Create a new Axon context
+        - name: get_metrics
+          description: Get Axon Server metrics and health information

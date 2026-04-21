@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "title": "CommandHandler",
+  "type": "object",
+  "fields": [
+    {
+      "name": "command",
+      "type": "string"
+    },
+    {
+      "name": "clientId",
+      "type": "string"
+    },
+    {
+      "name": "componentName",
+      "type": "string"
+    }
+  ]
+}

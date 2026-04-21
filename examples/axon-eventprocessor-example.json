@@ -1,0 +1,12 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "EventProcessor",
+  "example": {
+    "name": "example-axon-eventproce",
+    "mode": "example-axon-eventproce",
+    "isStreaming": true,
+    "fullName": "example-axon-eventproce",
+    "tokenStoreIdentifier": "example-axon-eventproce",
+    "activeThreads": 66
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Application",
+  "example": {
+    "name": "example-axon-applicatio",
+    "context": "example-axon-applicatio",
+    "componentName": "example-axon-applicatio",
+    "connectedFrom": "example-axon-applicatio"
+  }
+}

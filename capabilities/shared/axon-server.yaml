@@ -1,0 +1,40 @@
+naftiko: "1.0.0-alpha1"
+info:
+  label: Axon Server API
+  description: Shared capability definitions for Axon Server management API.
+  tags:
+    - CQRS
+    - Event Sourcing
+    - Messaging
+  created: "2026-04-19"
+  modified: "2026-04-19"
+capability:
+  exposes:
+    - type: rest
+      port: 8100
+      namespace: axon-server-api
+      resources:
+        - label: List Applications
+          method: GET
+          path: /v1/applications
+          operationId: ListApplications
+        - label: Create Application
+          method: POST
+          path: /v1/applications
+          operationId: CreateApplication
+        - label: Get Application
+          method: GET
+          path: /v1/applications/{name}
+          operationId: GetApplication
+        - label: Delete Application
+          method: DELETE
+          path: /v1/applications/{name}
+          operationId: DeleteApplication
+        - label: List Contexts
+          method: GET
+          path: /v1/contexts
+          operationId: ListContexts
+        - label: Create Context
+          method: POST
+          path: /v1/contexts
+          operationId: CreateContext

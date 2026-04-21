@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "title": "Application",
+  "type": "object",
+  "fields": [
+    {
+      "name": "name",
+      "type": "string"
+    },
+    {
+      "name": "context",
+      "type": "string"
+    },
+    {
+      "name": "componentName",
+      "type": "string"
+    },
+    {
+      "name": "connectedFrom",
+      "type": "string"
+    }
+  ]
+}

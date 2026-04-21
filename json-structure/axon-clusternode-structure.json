@@ -1,0 +1,35 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "title": "ClusterNode",
+  "type": "object",
+  "fields": [
+    {
+      "name": "name",
+      "type": "string"
+    },
+    {
+      "name": "hostName",
+      "type": "string"
+    },
+    {
+      "name": "grpcPort",
+      "type": "integer"
+    },
+    {
+      "name": "httpPort",
+      "type": "integer"
+    },
+    {
+      "name": "internalHostName",
+      "type": "string"
+    },
+    {
+      "name": "internalGrpcPort",
+      "type": "integer"
+    },
+    {
+      "name": "connected",
+      "type": "boolean"
+    }
+  ]
+}

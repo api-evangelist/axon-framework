@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "title": "User",
+  "type": "object",
+  "fields": [
+    {
+      "name": "userName",
+      "type": "string"
+    },
+    {
+      "name": "roles",
+      "type": "array"
+    }
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "title": "EventProcessor",
+  "type": "object",
+  "fields": [
+    {
+      "name": "name",
+      "type": "string"
+    },
+    {
+      "name": "mode",
+      "type": "string"
+    },
+    {
+      "name": "isStreaming",
+      "type": "boolean"
+    },
+    {
+      "name": "fullName",
+      "type": "string"
+    },
+    {
+      "name": "tokenStoreIdentifier",
+      "type": "string"
+    },
+    {
+      "name": "activeThreads",
+      "type": "integer"
+    },
+    {
+      "name": "canPause",
+      "type": "boolean"
+    },
+    {
+      "name": "isRunning",
+      "type": "boolean"
+    },
+    {
+      "name": "isError",
+      "type": "boolean"
+    }
+  ]
+}

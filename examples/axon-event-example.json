@@ -1,0 +1,12 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Event",
+  "example": {
+    "messageIdentifier": "example-axon-event",
+    "aggregateIdentifier": "example-axon-event",
+    "aggregateSequenceNumber": 81,
+    "aggregateType": "example-axon-event",
+    "timestamp": 37,
+    "payloadType": "example-axon-event"
+  }
+}

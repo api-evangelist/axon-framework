@@ -1,0 +1,36 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Event",
+  "type": "object",
+  "properties": {
+    "messageIdentifier": {
+      "type": "string"
+    },
+    "aggregateIdentifier": {
+      "type": "string"
+    },
+    "aggregateSequenceNumber": {
+      "type": "integer",
+      "format": "int64"
+    },
+    "aggregateType": {
+      "type": "string"
+    },
+    "timestamp": {
+      "type": "integer",
+      "format": "int64"
+    },
+    "payloadType": {
+      "type": "string"
+    },
+    "payloadRevision": {
+      "type": "string"
+    },
+    "payloadData": {
+      "type": "string"
+    },
+    "metaData": {
+      "type": "object"
+    }
+  }
+}

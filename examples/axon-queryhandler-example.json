@@ -1,0 +1,10 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "QueryHandler",
+  "example": {
+    "query": "example-axon-queryhandl",
+    "clientId": "example-axon-queryhandl",
+    "componentName": "example-axon-queryhandl",
+    "resultName": "example-axon-queryhandl"
+  }
+}

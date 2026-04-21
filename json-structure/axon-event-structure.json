@@ -1,0 +1,43 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "title": "Event",
+  "type": "object",
+  "fields": [
+    {
+      "name": "messageIdentifier",
+      "type": "string"
+    },
+    {
+      "name": "aggregateIdentifier",
+      "type": "string"
+    },
+    {
+      "name": "aggregateSequenceNumber",
+      "type": "integer"
+    },
+    {
+      "name": "aggregateType",
+      "type": "string"
+    },
+    {
+      "name": "timestamp",
+      "type": "integer"
+    },
+    {
+      "name": "payloadType",
+      "type": "string"
+    },
+    {
+      "name": "payloadRevision",
+      "type": "string"
+    },
+    {
+      "name": "payloadData",
+      "type": "string"
+    },
+    {
+      "name": "metaData",
+      "type": "object"
+    }
+  ]
+}

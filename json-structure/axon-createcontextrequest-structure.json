@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "title": "CreateContextRequest",
+  "type": "object",
+  "fields": [
+    {
+      "name": "context",
+      "type": "string"
+    },
+    {
+      "name": "replicationGroup",
+      "type": "string"
+    },
+    {
+      "name": "nodes",
+      "type": "array"
+    }
+  ]
+}

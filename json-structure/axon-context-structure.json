@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "title": "Context",
+  "type": "object",
+  "fields": [
+    {
+      "name": "context",
+      "type": "string"
+    },
+    {
+      "name": "leader",
+      "type": "string"
+    },
+    {
+      "name": "roles",
+      "type": "array"
+    }
+  ]
+}

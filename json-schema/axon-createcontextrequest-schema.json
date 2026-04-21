@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "CreateContextRequest",
+  "type": "object",
+  "properties": {
+    "context": {
+      "type": "string"
+    },
+    "replicationGroup": {
+      "type": "string"
+    },
+    "nodes": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    }
+  },
+  "required": [
+    "context"
+  ]
+}

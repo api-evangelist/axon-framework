@@ -1,0 +1,38 @@
+rules:
+  axon-operation-summary:
+    description: All operations must have a summary starting with "Axon Framework"
+    severity: warn
+    given: "$.paths[*][get,post,put,delete,patch]"
+    then:
+      field: summary
+      function: pattern
+      functionOptions:
+        match: "^Axon Framework"
+  axon-operation-id:
+    description: All operations must have an operationId
+    severity: error
+    given: "$.paths[*][get,post,put,delete,patch]"
+    then:
+      field: operationId
+      function: truthy
+  axon-info-title:
+    description: Info object must have a title
+    severity: error
+    given: "$.info"
+    then:
+      field: title
+      function: truthy
+  axon-response-description:
+    description: All responses must have a description
+    severity: error
+    given: "$.paths[*][*].responses[*]"
+    then:
+      field: description
+      function: truthy
+  axon-microcks-annotation:
+    description: Operations should have x-microcks-operation annotation
+    severity: info
+    given: "$.paths[*][get,post,put,delete,patch]"
+    then:
+      field: x-microcks-operation
+      function: truthy

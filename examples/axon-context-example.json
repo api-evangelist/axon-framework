@@ -1,0 +1,14 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Context",
+  "example": {
+    "context": "example-axon-context",
+    "leader": "example-axon-context",
+    "roles": [
+      {
+        "node": "example-axon-context",
+        "role": "example-axon-context"
+      }
+    ]
+  }
+}

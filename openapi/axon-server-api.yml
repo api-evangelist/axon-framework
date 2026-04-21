@@ -13,33 +13,33 @@ info:
     name: AxonIQ Open Source License
     url: https://www.axoniq.io/
 servers:
-  - url: '{baseUrl}/v1'
-    description: Axon Server
-    variables:
-      baseUrl:
-        default: http://localhost:8024
+- url: '{baseUrl}/v1'
+  description: Axon Server
+  variables:
+    baseUrl:
+      default: http://localhost:8024
 paths:
   /events:
     get:
       operationId: listEvents
-      summary: List events
+      summary: Axon Framework - List Events
       description: Returns events from the event store with optional filtering.
       tags:
-        - Events
+      - Events
       parameters:
-        - name: context
-          in: query
-          schema:
-            type: string
-        - name: trackingToken
-          in: query
-          schema:
-            type: integer
-            format: int64
-        - name: numberOfEvents
-          in: query
-          schema:
-            type: integer
+      - name: context
+        in: query
+        schema:
+          type: string
+      - name: trackingToken
+        in: query
+        schema:
+          type: integer
+          format: int64
+      - name: numberOfEvents
+        in: query
+        schema:
+          type: integer
       responses:
         '200':
           description: Successful response
@@ -49,17 +49,20 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/Event'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
     post:
       operationId: appendEvent
-      summary: Append an event
+      summary: Axon Framework - Append an Event
       description: Appends a new event to the event store.
       tags:
-        - Events
+      - Events
       parameters:
-        - name: context
-          in: query
-          schema:
-            type: string
+      - name: context
+        in: query
+        schema:
+          type: string
       requestBody:
         required: true
         content:
@@ -69,28 +72,31 @@ paths:
       responses:
         '200':
           description: Event appended
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
   /events/aggregates/{aggregateId}:
     get:
       operationId: getAggregateEvents
-      summary: Get events for an aggregate
+      summary: Axon Framework - Get Events for an Aggregate
       description: Returns all events for a specific aggregate.
       tags:
-        - Events
+      - Events
       parameters:
-        - name: aggregateId
-          in: path
-          required: true
-          schema:
-            type: string
-        - name: context
-          in: query
-          schema:
-            type: string
-        - name: initialSequence
-          in: query
-          schema:
-            type: integer
-            format: int64
+      - name: aggregateId
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: context
+        in: query
+        schema:
+          type: string
+      - name: initialSequence
+        in: query
+        schema:
+          type: integer
+          format: int64
       responses:
         '200':
           description: Successful response
@@ -100,23 +106,26 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/Event'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
   /snapshots/{aggregateId}:
     get:
       operationId: getSnapshots
-      summary: Get snapshots for an aggregate
+      summary: Axon Framework - Get Snapshots for an Aggregate
       description: Returns snapshots for a specific aggregate.
       tags:
-        - Snapshots
+      - Snapshots
       parameters:
-        - name: aggregateId
-          in: path
-          required: true
-          schema:
-            type: string
-        - name: context
-          in: query
-          schema:
-            type: string
+      - name: aggregateId
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: context
+        in: query
+        schema:
+          type: string
       responses:
         '200':
           description: Successful response
@@ -126,22 +135,25 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/Event'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
     post:
       operationId: appendSnapshot
-      summary: Append a snapshot
+      summary: Axon Framework - Append a Snapshot
       description: Appends a new snapshot for an aggregate.
       tags:
-        - Snapshots
+      - Snapshots
       parameters:
-        - name: aggregateId
-          in: path
-          required: true
-          schema:
-            type: string
-        - name: context
-          in: query
-          schema:
-            type: string
+      - name: aggregateId
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: context
+        in: query
+        schema:
+          type: string
       requestBody:
         required: true
         content:
@@ -151,18 +163,21 @@ paths:
       responses:
         '200':
           description: Snapshot appended
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
   /commands:
     get:
       operationId: listCommandHandlers
-      summary: List command handlers
+      summary: Axon Framework - List Command Handlers
       description: Returns registered command handlers and their routing information.
       tags:
-        - Commands
+      - Commands
       parameters:
-        - name: context
-          in: query
-          schema:
-            type: string
+      - name: context
+        in: query
+        schema:
+          type: string
       responses:
         '200':
           description: Successful response
@@ -172,18 +187,21 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/CommandHandler'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
   /queries:
     get:
       operationId: listQueryHandlers
-      summary: List query handlers
+      summary: Axon Framework - List Query Handlers
       description: Returns registered query handlers.
       tags:
-        - Queries
+      - Queries
       parameters:
-        - name: context
-          in: query
-          schema:
-            type: string
+      - name: context
+        in: query
+        schema:
+          type: string
       responses:
         '200':
           description: Successful response
@@ -193,13 +211,16 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/QueryHandler'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
   /context:
     get:
       operationId: listContexts
-      summary: List contexts
+      summary: Axon Framework - List Contexts
       description: Returns all application contexts.
       tags:
-        - Contexts
+      - Contexts
       responses:
         '200':
           description: Successful response
@@ -209,12 +230,15 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/Context'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
     post:
       operationId: createContext
-      summary: Create a context
+      summary: Axon Framework - Create a Context
       description: Creates a new application context.
       tags:
-        - Contexts
+      - Contexts
       requestBody:
         required: true
         content:
@@ -224,19 +248,22 @@ paths:
       responses:
         '200':
           description: Context created
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
   /context/{contextName}:
     get:
       operationId: getContext
-      summary: Get a context
+      summary: Axon Framework - Get a Context
       description: Returns details of a specific context.
       tags:
-        - Contexts
+      - Contexts
       parameters:
-        - name: contextName
-          in: path
-          required: true
-          schema:
-            type: string
+      - name: contextName
+        in: path
+        required: true
+        schema:
+          type: string
       responses:
         '200':
           description: Successful response
@@ -244,33 +271,39 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Context'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
     delete:
       operationId: deleteContext
-      summary: Delete a context
+      summary: Axon Framework - Delete a Context
       description: Deletes an application context.
       tags:
-        - Contexts
+      - Contexts
       parameters:
-        - name: contextName
-          in: path
-          required: true
-          schema:
-            type: string
+      - name: contextName
+        in: path
+        required: true
+        schema:
+          type: string
       responses:
         '200':
           description: Context deleted
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
   /applications:
     get:
       operationId: listApplications
-      summary: List applications
+      summary: Axon Framework - List Applications
       description: Returns all registered applications (connected clients).
       tags:
-        - Applications
+      - Applications
       parameters:
-        - name: context
-          in: query
-          schema:
-            type: string
+      - name: context
+        in: query
+        schema:
+          type: string
       responses:
         '200':
           description: Successful response
@@ -280,13 +313,16 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/Application'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
   /users:
     get:
       operationId: listUsers
-      summary: List users
+      summary: Axon Framework - List Users
       description: Returns all Axon Server users.
       tags:
-        - Users
+      - Users
       responses:
         '200':
           description: Successful response
@@ -296,12 +332,15 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/User'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
     post:
       operationId: createUser
-      summary: Create a user
+      summary: Axon Framework - Create a User
       description: Creates a new Axon Server user.
       tags:
-        - Users
+      - Users
       requestBody:
         required: true
         content:
@@ -311,29 +350,35 @@ paths:
       responses:
         '200':
           description: User created
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
   /users/{username}:
     delete:
       operationId: deleteUser
-      summary: Delete a user
+      summary: Axon Framework - Delete a User
       description: Deletes an Axon Server user.
       tags:
-        - Users
+      - Users
       parameters:
-        - name: username
-          in: path
-          required: true
-          schema:
-            type: string
+      - name: username
+        in: path
+        required: true
+        schema:
+          type: string
       responses:
         '200':
           description: User deleted
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
   /cluster:
     get:
       operationId: getClusterInfo
-      summary: Get cluster information
+      summary: Axon Framework - Get Cluster Information
       description: Returns information about the Axon Server cluster.
       tags:
-        - Cluster
+      - Cluster
       responses:
         '200':
           description: Successful response
@@ -343,34 +388,40 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/ClusterNode'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
   /cluster/{nodeName}:
     delete:
       operationId: removeNode
-      summary: Remove a node from the cluster
+      summary: Axon Framework - Remove a Node from the Cluster
       description: Removes a node from the Axon Server cluster.
       tags:
-        - Cluster
+      - Cluster
       parameters:
-        - name: nodeName
-          in: path
-          required: true
-          schema:
-            type: string
+      - name: nodeName
+        in: path
+        required: true
+        schema:
+          type: string
       responses:
         '200':
           description: Node removed
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
   /processors:
     get:
       operationId: listEventProcessors
-      summary: List event processors
+      summary: Axon Framework - List Event Processors
       description: Returns all tracking event processors and their status.
       tags:
-        - Event Processors
+      - Event Processors
       parameters:
-        - name: context
-          in: query
-          schema:
-            type: string
+      - name: context
+        in: query
+        schema:
+          type: string
       responses:
         '200':
           description: Successful response
@@ -380,54 +431,63 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/EventProcessor'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
   /processors/{processorName}/pause:
     patch:
       operationId: pauseEventProcessor
-      summary: Pause an event processor
+      summary: Axon Framework - Pause an Event Processor
       description: Pauses a tracking event processor.
       tags:
-        - Event Processors
+      - Event Processors
       parameters:
-        - name: processorName
-          in: path
-          required: true
-          schema:
-            type: string
-        - name: context
-          in: query
-          schema:
-            type: string
-        - name: tokenStoreIdentifier
-          in: query
-          schema:
-            type: string
+      - name: processorName
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: context
+        in: query
+        schema:
+          type: string
+      - name: tokenStoreIdentifier
+        in: query
+        schema:
+          type: string
       responses:
         '200':
           description: Event processor paused
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
   /processors/{processorName}/start:
     patch:
       operationId: startEventProcessor
-      summary: Start an event processor
+      summary: Axon Framework - Start an Event Processor
       description: Starts a paused tracking event processor.
       tags:
-        - Event Processors
+      - Event Processors
       parameters:
-        - name: processorName
-          in: path
-          required: true
-          schema:
-            type: string
-        - name: context
-          in: query
-          schema:
-            type: string
-        - name: tokenStoreIdentifier
-          in: query
-          schema:
-            type: string
+      - name: processorName
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: context
+        in: query
+        schema:
+          type: string
+      - name: tokenStoreIdentifier
+        in: query
+        schema:
+          type: string
       responses:
         '200':
           description: Event processor started
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
 components:
   schemas:
     Event:
@@ -492,7 +552,7 @@ components:
     CreateContextRequest:
       type: object
       required:
-        - context
+      - context
       properties:
         context:
           type: string
@@ -532,8 +592,8 @@ components:
     CreateUserRequest:
       type: object
       required:
-        - userName
-        - password
+      - userName
+      - password
       properties:
         userName:
           type: string

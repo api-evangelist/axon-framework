@@ -1,0 +1,12 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "ClusterNode",
+  "example": {
+    "name": "example-axon-clusternod",
+    "hostName": "example-axon-clusternod",
+    "grpcPort": 11,
+    "httpPort": 87,
+    "internalHostName": "example-axon-clusternod",
+    "internalGrpcPort": 68
+  }
+}

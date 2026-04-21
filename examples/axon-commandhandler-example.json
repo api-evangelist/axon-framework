@@ -1,0 +1,9 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "CommandHandler",
+  "example": {
+    "command": "example-axon-commandhan",
+    "clientId": "example-axon-commandhan",
+    "componentName": "example-axon-commandhan"
+  }
+}

@@ -1,0 +1,55 @@
+vocabulary:
+  title: Axon Framework Vocabulary
+  description: Controlled vocabulary for Axon Framework CQRS and event sourcing concepts
+  created: "2026-04-19"
+  modified: "2026-04-19"
+  terms:
+    - term: Command
+      definition: A message that expresses intent to change application state, handled by a command handler.
+      tags:
+        - CQRS
+        - Messaging
+    - term: Event
+      definition: A message that represents something that happened in the system, used to update state.
+      tags:
+        - Event Sourcing
+        - Messaging
+    - term: Query
+      definition: A message that requests data from the system, handled by a query handler.
+      tags:
+        - CQRS
+        - Messaging
+    - term: Aggregate
+      definition: A domain object that handles commands and produces events, maintaining consistency boundaries.
+      tags:
+        - CQRS
+        - Domain Model
+    - term: Event Store
+      definition: A persistent storage mechanism that stores all events in sequence, used for event sourcing.
+      tags:
+        - Event Sourcing
+        - Persistence
+    - term: Saga
+      definition: A long-running business process manager that coordinates multiple aggregates via events and commands.
+      tags:
+        - Workflow
+        - Messaging
+    - term: Projection
+      definition: A read model derived by processing a stream of events, representing current state for queries.
+      tags:
+        - CQRS
+        - Read Model
+    - term: Context
+      definition: A logical grouping of event streams and applications in Axon Server.
+      tags:
+        - Axon Server
+    - term: Axon Server
+      definition: A message router and event store that serves as the backbone for Axon Framework applications.
+      tags:
+        - Infrastructure
+        - Axon Server
+    - term: Tracking Event Processor
+      definition: An event processor that reads from a tracking token in the event store for reliable processing.
+      tags:
+        - Event Sourcing
+        - Processing

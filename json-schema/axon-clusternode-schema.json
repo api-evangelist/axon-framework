@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "ClusterNode",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string"
+    },
+    "hostName": {
+      "type": "string"
+    },
+    "grpcPort": {
+      "type": "integer"
+    },
+    "httpPort": {
+      "type": "integer"
+    },
+    "internalHostName": {
+      "type": "string"
+    },
+    "internalGrpcPort": {
+      "type": "integer"
+    },
+    "connected": {
+      "type": "boolean"
+    }
+  }
+}

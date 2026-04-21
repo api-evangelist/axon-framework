@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "title": "QueryHandler",
+  "type": "object",
+  "fields": [
+    {
+      "name": "query",
+      "type": "string"
+    },
+    {
+      "name": "clientId",
+      "type": "string"
+    },
+    {
+      "name": "componentName",
+      "type": "string"
+    },
+    {
+      "name": "resultName",
+      "type": "string"
+    }
+  ]
+}
