@@ -1,0 +1,891 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Axon Server REST API
+  description: The Axon Server REST API provides HTTP endpoints for managing the Axon Server event store, command routing,
+    query handling, application contexts, users, and cluster configuration.
+  tags:
+  - Axon
+  - Framework
+  - API
+  created: '2026-05-06'
+  modified: '2026-05-06'
+capability:
+  consumes:
+  - type: http
+    namespace: axon-framework
+    baseUri: http://localhost:8024/v1
+    description: Axon Server REST API HTTP API.
+    resources:
+    - name: events
+      path: /events
+      operations:
+      - name: listevents
+        method: GET
+        description: Axon Framework - List Events
+        inputParameters:
+        - name: context
+          in: query
+          type: string
+        - name: trackingToken
+          in: query
+          type: integer
+        - name: numberOfEvents
+          in: query
+          type: integer
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: appendevent
+        method: POST
+        description: Axon Framework - Append an Event
+        inputParameters:
+        - name: context
+          in: query
+          type: string
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: events-aggregates-aggregateid
+      path: /events/aggregates/{aggregateId}
+      operations:
+      - name: getaggregateevents
+        method: GET
+        description: Axon Framework - Get Events for an Aggregate
+        inputParameters:
+        - name: aggregateId
+          in: path
+          type: string
+          required: true
+        - name: context
+          in: query
+          type: string
+        - name: initialSequence
+          in: query
+          type: integer
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: snapshots-aggregateid
+      path: /snapshots/{aggregateId}
+      operations:
+      - name: getsnapshots
+        method: GET
+        description: Axon Framework - Get Snapshots for an Aggregate
+        inputParameters:
+        - name: aggregateId
+          in: path
+          type: string
+          required: true
+        - name: context
+          in: query
+          type: string
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: appendsnapshot
+        method: POST
+        description: Axon Framework - Append a Snapshot
+        inputParameters:
+        - name: aggregateId
+          in: path
+          type: string
+          required: true
+        - name: context
+          in: query
+          type: string
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: commands
+      path: /commands
+      operations:
+      - name: listcommandhandlers
+        method: GET
+        description: Axon Framework - List Command Handlers
+        inputParameters:
+        - name: context
+          in: query
+          type: string
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: queries
+      path: /queries
+      operations:
+      - name: listqueryhandlers
+        method: GET
+        description: Axon Framework - List Query Handlers
+        inputParameters:
+        - name: context
+          in: query
+          type: string
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: context
+      path: /context
+      operations:
+      - name: listcontexts
+        method: GET
+        description: Axon Framework - List Contexts
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: createcontext
+        method: POST
+        description: Axon Framework - Create a Context
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: context-contextname
+      path: /context/{contextName}
+      operations:
+      - name: getcontext
+        method: GET
+        description: Axon Framework - Get a Context
+        inputParameters:
+        - name: contextName
+          in: path
+          type: string
+          required: true
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: deletecontext
+        method: DELETE
+        description: Axon Framework - Delete a Context
+        inputParameters:
+        - name: contextName
+          in: path
+          type: string
+          required: true
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: applications
+      path: /applications
+      operations:
+      - name: listapplications
+        method: GET
+        description: Axon Framework - List Applications
+        inputParameters:
+        - name: context
+          in: query
+          type: string
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: users
+      path: /users
+      operations:
+      - name: listusers
+        method: GET
+        description: Axon Framework - List Users
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: createuser
+        method: POST
+        description: Axon Framework - Create a User
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: users-username
+      path: /users/{username}
+      operations:
+      - name: deleteuser
+        method: DELETE
+        description: Axon Framework - Delete a User
+        inputParameters:
+        - name: username
+          in: path
+          type: string
+          required: true
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: cluster
+      path: /cluster
+      operations:
+      - name: getclusterinfo
+        method: GET
+        description: Axon Framework - Get Cluster Information
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: cluster-nodename
+      path: /cluster/{nodeName}
+      operations:
+      - name: removenode
+        method: DELETE
+        description: Axon Framework - Remove a Node from the Cluster
+        inputParameters:
+        - name: nodeName
+          in: path
+          type: string
+          required: true
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: processors
+      path: /processors
+      operations:
+      - name: listeventprocessors
+        method: GET
+        description: Axon Framework - List Event Processors
+        inputParameters:
+        - name: context
+          in: query
+          type: string
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: processors-processorname-pause
+      path: /processors/{processorName}/pause
+      operations:
+      - name: pauseeventprocessor
+        method: PATCH
+        description: Axon Framework - Pause an Event Processor
+        inputParameters:
+        - name: processorName
+          in: path
+          type: string
+          required: true
+        - name: context
+          in: query
+          type: string
+        - name: tokenStoreIdentifier
+          in: query
+          type: string
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: processors-processorname-start
+      path: /processors/{processorName}/start
+      operations:
+      - name: starteventprocessor
+        method: PATCH
+        description: Axon Framework - Start an Event Processor
+        inputParameters:
+        - name: processorName
+          in: path
+          type: string
+          required: true
+        - name: context
+          in: query
+          type: string
+        - name: tokenStoreIdentifier
+          in: query
+          type: string
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    port: 8080
+    namespace: axon-framework-rest
+    description: REST adapter for Axon Server REST API.
+    resources:
+    - path: /events
+      name: listevents
+      operations:
+      - method: GET
+        name: listevents
+        description: Axon Framework - List Events
+        call: axon-framework.listevents
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /events
+      name: appendevent
+      operations:
+      - method: POST
+        name: appendevent
+        description: Axon Framework - Append an Event
+        call: axon-framework.appendevent
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /events/aggregates/{aggregateId}
+      name: getaggregateevents
+      operations:
+      - method: GET
+        name: getaggregateevents
+        description: Axon Framework - Get Events for an Aggregate
+        call: axon-framework.getaggregateevents
+        with:
+          aggregateId: rest.aggregateId
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /snapshots/{aggregateId}
+      name: getsnapshots
+      operations:
+      - method: GET
+        name: getsnapshots
+        description: Axon Framework - Get Snapshots for an Aggregate
+        call: axon-framework.getsnapshots
+        with:
+          aggregateId: rest.aggregateId
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /snapshots/{aggregateId}
+      name: appendsnapshot
+      operations:
+      - method: POST
+        name: appendsnapshot
+        description: Axon Framework - Append a Snapshot
+        call: axon-framework.appendsnapshot
+        with:
+          aggregateId: rest.aggregateId
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /commands
+      name: listcommandhandlers
+      operations:
+      - method: GET
+        name: listcommandhandlers
+        description: Axon Framework - List Command Handlers
+        call: axon-framework.listcommandhandlers
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /queries
+      name: listqueryhandlers
+      operations:
+      - method: GET
+        name: listqueryhandlers
+        description: Axon Framework - List Query Handlers
+        call: axon-framework.listqueryhandlers
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /context
+      name: listcontexts
+      operations:
+      - method: GET
+        name: listcontexts
+        description: Axon Framework - List Contexts
+        call: axon-framework.listcontexts
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /context
+      name: createcontext
+      operations:
+      - method: POST
+        name: createcontext
+        description: Axon Framework - Create a Context
+        call: axon-framework.createcontext
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /context/{contextName}
+      name: getcontext
+      operations:
+      - method: GET
+        name: getcontext
+        description: Axon Framework - Get a Context
+        call: axon-framework.getcontext
+        with:
+          contextName: rest.contextName
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /context/{contextName}
+      name: deletecontext
+      operations:
+      - method: DELETE
+        name: deletecontext
+        description: Axon Framework - Delete a Context
+        call: axon-framework.deletecontext
+        with:
+          contextName: rest.contextName
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /applications
+      name: listapplications
+      operations:
+      - method: GET
+        name: listapplications
+        description: Axon Framework - List Applications
+        call: axon-framework.listapplications
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /users
+      name: listusers
+      operations:
+      - method: GET
+        name: listusers
+        description: Axon Framework - List Users
+        call: axon-framework.listusers
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /users
+      name: createuser
+      operations:
+      - method: POST
+        name: createuser
+        description: Axon Framework - Create a User
+        call: axon-framework.createuser
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /users/{username}
+      name: deleteuser
+      operations:
+      - method: DELETE
+        name: deleteuser
+        description: Axon Framework - Delete a User
+        call: axon-framework.deleteuser
+        with:
+          username: rest.username
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /cluster
+      name: getclusterinfo
+      operations:
+      - method: GET
+        name: getclusterinfo
+        description: Axon Framework - Get Cluster Information
+        call: axon-framework.getclusterinfo
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /cluster/{nodeName}
+      name: removenode
+      operations:
+      - method: DELETE
+        name: removenode
+        description: Axon Framework - Remove a Node from the Cluster
+        call: axon-framework.removenode
+        with:
+          nodeName: rest.nodeName
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /processors
+      name: listeventprocessors
+      operations:
+      - method: GET
+        name: listeventprocessors
+        description: Axon Framework - List Event Processors
+        call: axon-framework.listeventprocessors
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /processors/{processorName}/pause
+      name: pauseeventprocessor
+      operations:
+      - method: PATCH
+        name: pauseeventprocessor
+        description: Axon Framework - Pause an Event Processor
+        call: axon-framework.pauseeventprocessor
+        with:
+          processorName: rest.processorName
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /processors/{processorName}/start
+      name: starteventprocessor
+      operations:
+      - method: PATCH
+        name: starteventprocessor
+        description: Axon Framework - Start an Event Processor
+        call: axon-framework.starteventprocessor
+        with:
+          processorName: rest.processorName
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    port: 9090
+    namespace: axon-framework-mcp
+    transport: http
+    description: MCP adapter for Axon Server REST API for AI agent use.
+    tools:
+    - name: listevents
+      description: Axon Framework - List Events
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: axon-framework.listevents
+      with:
+        context: tools.context
+        trackingToken: tools.trackingToken
+        numberOfEvents: tools.numberOfEvents
+      inputParameters:
+      - name: context
+        type: string
+        description: context
+      - name: trackingToken
+        type: integer
+        description: trackingToken
+      - name: numberOfEvents
+        type: integer
+        description: numberOfEvents
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: appendevent
+      description: Axon Framework - Append an Event
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: axon-framework.appendevent
+      with:
+        context: tools.context
+      inputParameters:
+      - name: context
+        type: string
+        description: context
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: getaggregateevents
+      description: Axon Framework - Get Events for an Aggregate
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: axon-framework.getaggregateevents
+      with:
+        aggregateId: tools.aggregateId
+        context: tools.context
+        initialSequence: tools.initialSequence
+      inputParameters:
+      - name: aggregateId
+        type: string
+        description: aggregateId
+        required: true
+      - name: context
+        type: string
+        description: context
+      - name: initialSequence
+        type: integer
+        description: initialSequence
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: getsnapshots
+      description: Axon Framework - Get Snapshots for an Aggregate
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: axon-framework.getsnapshots
+      with:
+        aggregateId: tools.aggregateId
+        context: tools.context
+      inputParameters:
+      - name: aggregateId
+        type: string
+        description: aggregateId
+        required: true
+      - name: context
+        type: string
+        description: context
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: appendsnapshot
+      description: Axon Framework - Append a Snapshot
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: axon-framework.appendsnapshot
+      with:
+        aggregateId: tools.aggregateId
+        context: tools.context
+      inputParameters:
+      - name: aggregateId
+        type: string
+        description: aggregateId
+        required: true
+      - name: context
+        type: string
+        description: context
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: listcommandhandlers
+      description: Axon Framework - List Command Handlers
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: axon-framework.listcommandhandlers
+      with:
+        context: tools.context
+      inputParameters:
+      - name: context
+        type: string
+        description: context
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: listqueryhandlers
+      description: Axon Framework - List Query Handlers
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: axon-framework.listqueryhandlers
+      with:
+        context: tools.context
+      inputParameters:
+      - name: context
+        type: string
+        description: context
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: listcontexts
+      description: Axon Framework - List Contexts
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: axon-framework.listcontexts
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: createcontext
+      description: Axon Framework - Create a Context
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: axon-framework.createcontext
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: getcontext
+      description: Axon Framework - Get a Context
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: axon-framework.getcontext
+      with:
+        contextName: tools.contextName
+      inputParameters:
+      - name: contextName
+        type: string
+        description: contextName
+        required: true
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: deletecontext
+      description: Axon Framework - Delete a Context
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: axon-framework.deletecontext
+      with:
+        contextName: tools.contextName
+      inputParameters:
+      - name: contextName
+        type: string
+        description: contextName
+        required: true
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: listapplications
+      description: Axon Framework - List Applications
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: axon-framework.listapplications
+      with:
+        context: tools.context
+      inputParameters:
+      - name: context
+        type: string
+        description: context
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: listusers
+      description: Axon Framework - List Users
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: axon-framework.listusers
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: createuser
+      description: Axon Framework - Create a User
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: axon-framework.createuser
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: deleteuser
+      description: Axon Framework - Delete a User
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: axon-framework.deleteuser
+      with:
+        username: tools.username
+      inputParameters:
+      - name: username
+        type: string
+        description: username
+        required: true
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: getclusterinfo
+      description: Axon Framework - Get Cluster Information
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: axon-framework.getclusterinfo
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: removenode
+      description: Axon Framework - Remove a Node from the Cluster
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: axon-framework.removenode
+      with:
+        nodeName: tools.nodeName
+      inputParameters:
+      - name: nodeName
+        type: string
+        description: nodeName
+        required: true
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: listeventprocessors
+      description: Axon Framework - List Event Processors
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: axon-framework.listeventprocessors
+      with:
+        context: tools.context
+      inputParameters:
+      - name: context
+        type: string
+        description: context
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: pauseeventprocessor
+      description: Axon Framework - Pause an Event Processor
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: axon-framework.pauseeventprocessor
+      with:
+        processorName: tools.processorName
+        context: tools.context
+        tokenStoreIdentifier: tools.tokenStoreIdentifier
+      inputParameters:
+      - name: processorName
+        type: string
+        description: processorName
+        required: true
+      - name: context
+        type: string
+        description: context
+      - name: tokenStoreIdentifier
+        type: string
+        description: tokenStoreIdentifier
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: starteventprocessor
+      description: Axon Framework - Start an Event Processor
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: axon-framework.starteventprocessor
+      with:
+        processorName: tools.processorName
+        context: tools.context
+        tokenStoreIdentifier: tools.tokenStoreIdentifier
+      inputParameters:
+      - name: processorName
+        type: string
+        description: processorName
+        required: true
+      - name: context
+        type: string
+        description: context
+      - name: tokenStoreIdentifier
+        type: string
+        description: tokenStoreIdentifier
+      outputParameters:
+      - type: object
+        mapping: $.
