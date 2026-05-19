@@ -1,0 +1,177 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Axon Server REST API — Contexts
+  description: 'Axon Server REST API — Contexts. 4 operations. Lead operation: Axon Framework - List Contexts. Self-contained
+    Naftiko capability covering one Axon Framework business surface.'
+  tags:
+  - Axon Framework
+  - Contexts
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AXON_FRAMEWORK_API_KEY: AXON_FRAMEWORK_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: axon-server-contexts
+    baseUri: ''
+    description: Axon Server REST API — Contexts business capability. Self-contained, no shared references.
+    resources:
+    - name: context
+      path: /context
+      operations:
+      - name: listcontexts
+        method: GET
+        description: Axon Framework - List Contexts
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: createcontext
+        method: POST
+        description: Axon Framework - Create a Context
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: context-contextName
+      path: /context/{contextName}
+      operations:
+      - name: getcontext
+        method: GET
+        description: Axon Framework - Get a Context
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: contextName
+          in: path
+          type: string
+          required: true
+      - name: deletecontext
+        method: DELETE
+        description: Axon Framework - Delete a Context
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: contextName
+          in: path
+          type: string
+          required: true
+  exposes:
+  - type: rest
+    namespace: axon-server-contexts-rest
+    port: 8080
+    description: REST adapter for Axon Server REST API — Contexts. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/context
+      name: context
+      description: REST surface for context.
+      operations:
+      - method: GET
+        name: listcontexts
+        description: Axon Framework - List Contexts
+        call: axon-server-contexts.listcontexts
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: POST
+        name: createcontext
+        description: Axon Framework - Create a Context
+        call: axon-server-contexts.createcontext
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/context/{contextname}
+      name: context-contextname
+      description: REST surface for context-contextName.
+      operations:
+      - method: GET
+        name: getcontext
+        description: Axon Framework - Get a Context
+        call: axon-server-contexts.getcontext
+        with:
+          contextName: rest.contextName
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: DELETE
+        name: deletecontext
+        description: Axon Framework - Delete a Context
+        call: axon-server-contexts.deletecontext
+        with:
+          contextName: rest.contextName
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: axon-server-contexts-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Axon Server REST API — Contexts. One tool per consumed operation, routed inline through this
+      capability's consumes block.
+    tools:
+    - name: axon-framework-list-contexts
+      description: Axon Framework - List Contexts
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: axon-server-contexts.listcontexts
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: axon-framework-create-context
+      description: Axon Framework - Create a Context
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: axon-server-contexts.createcontext
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: axon-framework-get-context
+      description: Axon Framework - Get a Context
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: axon-server-contexts.getcontext
+      with:
+        contextName: tools.contextName
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: axon-framework-delete-context
+      description: Axon Framework - Delete a Context
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: axon-server-contexts.deletecontext
+      with:
+        contextName: tools.contextName
+      outputParameters:
+      - type: object
+        mapping: $.

@@ -1,0 +1,177 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Axon Server REST API — Event Processors
+  description: 'Axon Server REST API — Event Processors. 3 operations. Lead operation: Axon Framework - List Event Processors.
+    Self-contained Naftiko capability covering one Axon Framework business surface.'
+  tags:
+  - Axon Framework
+  - Event Processors
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AXON_FRAMEWORK_API_KEY: AXON_FRAMEWORK_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: axon-server-event-processors
+    baseUri: ''
+    description: Axon Server REST API — Event Processors business capability. Self-contained, no shared references.
+    resources:
+    - name: processors
+      path: /processors
+      operations:
+      - name: listeventprocessors
+        method: GET
+        description: Axon Framework - List Event Processors
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: context
+          in: query
+          type: string
+    - name: processors-processorName-pause
+      path: /processors/{processorName}/pause
+      operations:
+      - name: pauseeventprocessor
+        method: PATCH
+        description: Axon Framework - Pause an Event Processor
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: processorName
+          in: path
+          type: string
+          required: true
+        - name: context
+          in: query
+          type: string
+        - name: tokenStoreIdentifier
+          in: query
+          type: string
+    - name: processors-processorName-start
+      path: /processors/{processorName}/start
+      operations:
+      - name: starteventprocessor
+        method: PATCH
+        description: Axon Framework - Start an Event Processor
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: processorName
+          in: path
+          type: string
+          required: true
+        - name: context
+          in: query
+          type: string
+        - name: tokenStoreIdentifier
+          in: query
+          type: string
+  exposes:
+  - type: rest
+    namespace: axon-server-event-processors-rest
+    port: 8080
+    description: REST adapter for Axon Server REST API — Event Processors. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/processors
+      name: processors
+      description: REST surface for processors.
+      operations:
+      - method: GET
+        name: listeventprocessors
+        description: Axon Framework - List Event Processors
+        call: axon-server-event-processors.listeventprocessors
+        with:
+          context: rest.context
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/processors/{processorname}/pause
+      name: processors-processorname-pause
+      description: REST surface for processors-processorName-pause.
+      operations:
+      - method: PATCH
+        name: pauseeventprocessor
+        description: Axon Framework - Pause an Event Processor
+        call: axon-server-event-processors.pauseeventprocessor
+        with:
+          processorName: rest.processorName
+          context: rest.context
+          tokenStoreIdentifier: rest.tokenStoreIdentifier
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/processors/{processorname}/start
+      name: processors-processorname-start
+      description: REST surface for processors-processorName-start.
+      operations:
+      - method: PATCH
+        name: starteventprocessor
+        description: Axon Framework - Start an Event Processor
+        call: axon-server-event-processors.starteventprocessor
+        with:
+          processorName: rest.processorName
+          context: rest.context
+          tokenStoreIdentifier: rest.tokenStoreIdentifier
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: axon-server-event-processors-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Axon Server REST API — Event Processors. One tool per consumed operation, routed inline through
+      this capability's consumes block.
+    tools:
+    - name: axon-framework-list-event-processors
+      description: Axon Framework - List Event Processors
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: axon-server-event-processors.listeventprocessors
+      with:
+        context: tools.context
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: axon-framework-pause-event-processor
+      description: Axon Framework - Pause an Event Processor
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: axon-server-event-processors.pauseeventprocessor
+      with:
+        processorName: tools.processorName
+        context: tools.context
+        tokenStoreIdentifier: tools.tokenStoreIdentifier
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: axon-framework-start-event-processor
+      description: Axon Framework - Start an Event Processor
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: axon-server-event-processors.starteventprocessor
+      with:
+        processorName: tools.processorName
+        context: tools.context
+        tokenStoreIdentifier: tools.tokenStoreIdentifier
+      outputParameters:
+      - type: object
+        mapping: $.

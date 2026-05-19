@@ -1,0 +1,75 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Axon Server REST API — Applications
+  description: 'Axon Server REST API — Applications. 1 operations. Lead operation: Axon Framework - List Applications. Self-contained
+    Naftiko capability covering one Axon Framework business surface.'
+  tags:
+  - Axon Framework
+  - Applications
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AXON_FRAMEWORK_API_KEY: AXON_FRAMEWORK_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: axon-server-applications
+    baseUri: ''
+    description: Axon Server REST API — Applications business capability. Self-contained, no shared references.
+    resources:
+    - name: applications
+      path: /applications
+      operations:
+      - name: listapplications
+        method: GET
+        description: Axon Framework - List Applications
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: context
+          in: query
+          type: string
+  exposes:
+  - type: rest
+    namespace: axon-server-applications-rest
+    port: 8080
+    description: REST adapter for Axon Server REST API — Applications. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/applications
+      name: applications
+      description: REST surface for applications.
+      operations:
+      - method: GET
+        name: listapplications
+        description: Axon Framework - List Applications
+        call: axon-server-applications.listapplications
+        with:
+          context: rest.context
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: axon-server-applications-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Axon Server REST API — Applications. One tool per consumed operation, routed inline through
+      this capability's consumes block.
+    tools:
+    - name: axon-framework-list-applications
+      description: Axon Framework - List Applications
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: axon-server-applications.listapplications
+      with:
+        context: tools.context
+      outputParameters:
+      - type: object
+        mapping: $.

@@ -1,0 +1,75 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Axon Server REST API — Queries
+  description: 'Axon Server REST API — Queries. 1 operations. Lead operation: Axon Framework - List Query Handlers. Self-contained
+    Naftiko capability covering one Axon Framework business surface.'
+  tags:
+  - Axon Framework
+  - Queries
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AXON_FRAMEWORK_API_KEY: AXON_FRAMEWORK_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: axon-server-queries
+    baseUri: ''
+    description: Axon Server REST API — Queries business capability. Self-contained, no shared references.
+    resources:
+    - name: queries
+      path: /queries
+      operations:
+      - name: listqueryhandlers
+        method: GET
+        description: Axon Framework - List Query Handlers
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: context
+          in: query
+          type: string
+  exposes:
+  - type: rest
+    namespace: axon-server-queries-rest
+    port: 8080
+    description: REST adapter for Axon Server REST API — Queries. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/queries
+      name: queries
+      description: REST surface for queries.
+      operations:
+      - method: GET
+        name: listqueryhandlers
+        description: Axon Framework - List Query Handlers
+        call: axon-server-queries.listqueryhandlers
+        with:
+          context: rest.context
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: axon-server-queries-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Axon Server REST API — Queries. One tool per consumed operation, routed inline through this
+      capability's consumes block.
+    tools:
+    - name: axon-framework-list-query-handlers
+      description: Axon Framework - List Query Handlers
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: axon-server-queries.listqueryhandlers
+      with:
+        context: tools.context
+      outputParameters:
+      - type: object
+        mapping: $.

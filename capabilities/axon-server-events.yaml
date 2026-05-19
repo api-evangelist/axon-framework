@@ -1,0 +1,176 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Axon Server REST API — Events
+  description: 'Axon Server REST API — Events. 3 operations. Lead operation: Axon Framework - List Events. Self-contained
+    Naftiko capability covering one Axon Framework business surface.'
+  tags:
+  - Axon Framework
+  - Events
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AXON_FRAMEWORK_API_KEY: AXON_FRAMEWORK_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: axon-server-events
+    baseUri: ''
+    description: Axon Server REST API — Events business capability. Self-contained, no shared references.
+    resources:
+    - name: events
+      path: /events
+      operations:
+      - name: listevents
+        method: GET
+        description: Axon Framework - List Events
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: context
+          in: query
+          type: string
+        - name: trackingToken
+          in: query
+          type: integer
+        - name: numberOfEvents
+          in: query
+          type: integer
+      - name: appendevent
+        method: POST
+        description: Axon Framework - Append an Event
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: context
+          in: query
+          type: string
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: events-aggregates-aggregateId
+      path: /events/aggregates/{aggregateId}
+      operations:
+      - name: getaggregateevents
+        method: GET
+        description: Axon Framework - Get Events for an Aggregate
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: aggregateId
+          in: path
+          type: string
+          required: true
+        - name: context
+          in: query
+          type: string
+        - name: initialSequence
+          in: query
+          type: integer
+  exposes:
+  - type: rest
+    namespace: axon-server-events-rest
+    port: 8080
+    description: REST adapter for Axon Server REST API — Events. One Spectral-compliant resource per consumed operation, prefixed
+      with /v1.
+    resources:
+    - path: /v1/events
+      name: events
+      description: REST surface for events.
+      operations:
+      - method: GET
+        name: listevents
+        description: Axon Framework - List Events
+        call: axon-server-events.listevents
+        with:
+          context: rest.context
+          trackingToken: rest.trackingToken
+          numberOfEvents: rest.numberOfEvents
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: POST
+        name: appendevent
+        description: Axon Framework - Append an Event
+        call: axon-server-events.appendevent
+        with:
+          context: rest.context
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/events/aggregates/{aggregateid}
+      name: events-aggregates-aggregateid
+      description: REST surface for events-aggregates-aggregateId.
+      operations:
+      - method: GET
+        name: getaggregateevents
+        description: Axon Framework - Get Events for an Aggregate
+        call: axon-server-events.getaggregateevents
+        with:
+          aggregateId: rest.aggregateId
+          context: rest.context
+          initialSequence: rest.initialSequence
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: axon-server-events-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Axon Server REST API — Events. One tool per consumed operation, routed inline through this
+      capability's consumes block.
+    tools:
+    - name: axon-framework-list-events
+      description: Axon Framework - List Events
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: axon-server-events.listevents
+      with:
+        context: tools.context
+        trackingToken: tools.trackingToken
+        numberOfEvents: tools.numberOfEvents
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: axon-framework-append-event
+      description: Axon Framework - Append an Event
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: axon-server-events.appendevent
+      with:
+        context: tools.context
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: axon-framework-get-events-aggregate
+      description: Axon Framework - Get Events for an Aggregate
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: axon-server-events.getaggregateevents
+      with:
+        aggregateId: tools.aggregateId
+        context: tools.context
+        initialSequence: tools.initialSequence
+      outputParameters:
+      - type: object
+        mapping: $.

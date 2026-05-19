@@ -42,6 +42,8 @@ apis:
     url: https://docs.axoniq.io/axon-server/administration/axon-server-api
   baseURL: https://axonserver:8024
 common:
+  - type: LinkedIn
+    url: https://www.linkedin.com/company/axoniq
 - type: Website
   url: https://www.axoniq.io/
 - type: Documentation

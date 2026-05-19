@@ -1,0 +1,108 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Axon Server REST API — Cluster
+  description: 'Axon Server REST API — Cluster. 2 operations. Lead operation: Axon Framework - Get Cluster Information. Self-contained
+    Naftiko capability covering one Axon Framework business surface.'
+  tags:
+  - Axon Framework
+  - Cluster
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AXON_FRAMEWORK_API_KEY: AXON_FRAMEWORK_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: axon-server-cluster
+    baseUri: ''
+    description: Axon Server REST API — Cluster business capability. Self-contained, no shared references.
+    resources:
+    - name: cluster
+      path: /cluster
+      operations:
+      - name: getclusterinfo
+        method: GET
+        description: Axon Framework - Get Cluster Information
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: cluster-nodeName
+      path: /cluster/{nodeName}
+      operations:
+      - name: removenode
+        method: DELETE
+        description: Axon Framework - Remove a Node from the Cluster
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: nodeName
+          in: path
+          type: string
+          required: true
+  exposes:
+  - type: rest
+    namespace: axon-server-cluster-rest
+    port: 8080
+    description: REST adapter for Axon Server REST API — Cluster. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/cluster
+      name: cluster
+      description: REST surface for cluster.
+      operations:
+      - method: GET
+        name: getclusterinfo
+        description: Axon Framework - Get Cluster Information
+        call: axon-server-cluster.getclusterinfo
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/cluster/{nodename}
+      name: cluster-nodename
+      description: REST surface for cluster-nodeName.
+      operations:
+      - method: DELETE
+        name: removenode
+        description: Axon Framework - Remove a Node from the Cluster
+        call: axon-server-cluster.removenode
+        with:
+          nodeName: rest.nodeName
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: axon-server-cluster-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Axon Server REST API — Cluster. One tool per consumed operation, routed inline through this
+      capability's consumes block.
+    tools:
+    - name: axon-framework-get-cluster-information
+      description: Axon Framework - Get Cluster Information
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: axon-server-cluster.getclusterinfo
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: axon-framework-remove-node-cluster
+      description: Axon Framework - Remove a Node from the Cluster
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: axon-server-cluster.removenode
+      with:
+        nodeName: tools.nodeName
+      outputParameters:
+      - type: object
+        mapping: $.
