@@ -1,0 +1,473 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Axon Server REST API",
+    "version": "4.9.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Events",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Axon Framework - List Events",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{baseUrl}/v1/events",
+            "params": [
+              {
+                "name": "context",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "trackingToken",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "numberOfEvents",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Returns events from the event store with optional filtering."
+        },
+        {
+          "info": {
+            "name": "Axon Framework - Append an Event",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{baseUrl}/v1/events",
+            "params": [
+              {
+                "name": "context",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Appends a new event to the event store."
+        },
+        {
+          "info": {
+            "name": "Axon Framework - Get Events for an Aggregate",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{baseUrl}/v1/events/aggregates/:aggregateId",
+            "params": [
+              {
+                "name": "aggregateId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "context",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "initialSequence",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Returns all events for a specific aggregate."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Snapshots",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Axon Framework - Get Snapshots for an Aggregate",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{baseUrl}/v1/snapshots/:aggregateId",
+            "params": [
+              {
+                "name": "aggregateId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "context",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Returns snapshots for a specific aggregate."
+        },
+        {
+          "info": {
+            "name": "Axon Framework - Append a Snapshot",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{baseUrl}/v1/snapshots/:aggregateId",
+            "params": [
+              {
+                "name": "aggregateId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "context",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Appends a new snapshot for an aggregate."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Commands",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Axon Framework - List Command Handlers",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{baseUrl}/v1/commands",
+            "params": [
+              {
+                "name": "context",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Returns registered command handlers and their routing information."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Queries",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Axon Framework - List Query Handlers",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{baseUrl}/v1/queries",
+            "params": [
+              {
+                "name": "context",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Returns registered query handlers."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Contexts",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Axon Framework - List Contexts",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{baseUrl}/v1/context"
+          },
+          "docs": "Returns all application contexts."
+        },
+        {
+          "info": {
+            "name": "Axon Framework - Create a Context",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{baseUrl}/v1/context",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates a new application context."
+        },
+        {
+          "info": {
+            "name": "Axon Framework - Get a Context",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{baseUrl}/v1/context/:contextName",
+            "params": [
+              {
+                "name": "contextName",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Returns details of a specific context."
+        },
+        {
+          "info": {
+            "name": "Axon Framework - Delete a Context",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{baseUrl}/v1/context/:contextName",
+            "params": [
+              {
+                "name": "contextName",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Deletes an application context."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Applications",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Axon Framework - List Applications",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{baseUrl}/v1/applications",
+            "params": [
+              {
+                "name": "context",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Returns all registered applications (connected clients)."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Users",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Axon Framework - List Users",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{baseUrl}/v1/users"
+          },
+          "docs": "Returns all Axon Server users."
+        },
+        {
+          "info": {
+            "name": "Axon Framework - Create a User",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{baseUrl}/v1/users",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates a new Axon Server user."
+        },
+        {
+          "info": {
+            "name": "Axon Framework - Delete a User",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{baseUrl}/v1/users/:username",
+            "params": [
+              {
+                "name": "username",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Deletes an Axon Server user."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Cluster",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Axon Framework - Get Cluster Information",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{baseUrl}/v1/cluster"
+          },
+          "docs": "Returns information about the Axon Server cluster."
+        },
+        {
+          "info": {
+            "name": "Axon Framework - Remove a Node from the Cluster",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{baseUrl}/v1/cluster/:nodeName",
+            "params": [
+              {
+                "name": "nodeName",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Removes a node from the Axon Server cluster."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Event Processors",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Axon Framework - List Event Processors",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{baseUrl}/v1/processors",
+            "params": [
+              {
+                "name": "context",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Returns all tracking event processors and their status."
+        },
+        {
+          "info": {
+            "name": "Axon Framework - Pause an Event Processor",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "{baseUrl}/v1/processors/:processorName/pause",
+            "params": [
+              {
+                "name": "processorName",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "context",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "tokenStoreIdentifier",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Pauses a tracking event processor."
+        },
+        {
+          "info": {
+            "name": "Axon Framework - Start an Event Processor",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "{baseUrl}/v1/processors/:processorName/start",
+            "params": [
+              {
+                "name": "processorName",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "context",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "tokenStoreIdentifier",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Starts a paused tracking event processor."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
