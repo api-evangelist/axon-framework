@@ -1,0 +1,115 @@
+openapi: 3.1.0
+info:
+  title: Axon Server REST Applications Users API
+  description: The Axon Server REST API provides HTTP endpoints for managing the Axon Server event store, command routing, query handling, application contexts, users, and cluster configuration.
+  version: 4.9.0
+  contact:
+    name: AxonIQ
+    url: https://www.axoniq.io/
+  license:
+    name: AxonIQ Open Source License
+    url: https://www.axoniq.io/
+servers:
+- url: '{baseUrl}/v1'
+  description: Axon Server
+  variables:
+    baseUrl:
+      default: http://localhost:8024
+tags:
+- name: Users
+paths:
+  /users:
+    get:
+      operationId: listUsers
+      summary: Axon Framework - List Users
+      description: Returns all Axon Server users.
+      tags:
+      - Users
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/User'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+    post:
+      operationId: createUser
+      summary: Axon Framework - Create a User
+      description: Creates a new Axon Server user.
+      tags:
+      - Users
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateUserRequest'
+      responses:
+        '200':
+          description: User created
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /users/{username}:
+    delete:
+      operationId: deleteUser
+      summary: Axon Framework - Delete a User
+      description: Deletes an Axon Server user.
+      tags:
+      - Users
+      parameters:
+      - name: username
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: User deleted
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+components:
+  schemas:
+    User:
+      type: object
+      properties:
+        userName:
+          type: string
+        roles:
+          type: array
+          items:
+            type: object
+            properties:
+              context:
+                type: string
+              roles:
+                type: array
+                items:
+                  type: string
+    CreateUserRequest:
+      type: object
+      required:
+      - userName
+      - password
+      properties:
+        userName:
+          type: string
+        password:
+          type: string
+        roles:
+          type: array
+          items:
+            type: object
+            properties:
+              context:
+                type: string
+              roles:
+                type: array
+                items:
+                  type: string

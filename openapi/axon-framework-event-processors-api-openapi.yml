@@ -1,0 +1,121 @@
+openapi: 3.1.0
+info:
+  title: Axon Server REST Applications Event Processors API
+  description: The Axon Server REST API provides HTTP endpoints for managing the Axon Server event store, command routing, query handling, application contexts, users, and cluster configuration.
+  version: 4.9.0
+  contact:
+    name: AxonIQ
+    url: https://www.axoniq.io/
+  license:
+    name: AxonIQ Open Source License
+    url: https://www.axoniq.io/
+servers:
+- url: '{baseUrl}/v1'
+  description: Axon Server
+  variables:
+    baseUrl:
+      default: http://localhost:8024
+tags:
+- name: Event Processors
+paths:
+  /processors:
+    get:
+      operationId: listEventProcessors
+      summary: Axon Framework - List Event Processors
+      description: Returns all tracking event processors and their status.
+      tags:
+      - Event Processors
+      parameters:
+      - name: context
+        in: query
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/EventProcessor'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /processors/{processorName}/pause:
+    patch:
+      operationId: pauseEventProcessor
+      summary: Axon Framework - Pause an Event Processor
+      description: Pauses a tracking event processor.
+      tags:
+      - Event Processors
+      parameters:
+      - name: processorName
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: context
+        in: query
+        schema:
+          type: string
+      - name: tokenStoreIdentifier
+        in: query
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Event processor paused
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /processors/{processorName}/start:
+    patch:
+      operationId: startEventProcessor
+      summary: Axon Framework - Start an Event Processor
+      description: Starts a paused tracking event processor.
+      tags:
+      - Event Processors
+      parameters:
+      - name: processorName
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: context
+        in: query
+        schema:
+          type: string
+      - name: tokenStoreIdentifier
+        in: query
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Event processor started
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+components:
+  schemas:
+    EventProcessor:
+      type: object
+      properties:
+        name:
+          type: string
+        mode:
+          type: string
+        isStreaming:
+          type: boolean
+        fullName:
+          type: string
+        tokenStoreIdentifier:
+          type: string
+        activeThreads:
+          type: integer
+        canPause:
+          type: boolean
+        isRunning:
+          type: boolean
+        isError:
+          type: boolean

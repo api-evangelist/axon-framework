@@ -1,0 +1,102 @@
+openapi: 3.1.0
+info:
+  title: Axon Server REST Applications Snapshots API
+  description: The Axon Server REST API provides HTTP endpoints for managing the Axon Server event store, command routing, query handling, application contexts, users, and cluster configuration.
+  version: 4.9.0
+  contact:
+    name: AxonIQ
+    url: https://www.axoniq.io/
+  license:
+    name: AxonIQ Open Source License
+    url: https://www.axoniq.io/
+servers:
+- url: '{baseUrl}/v1'
+  description: Axon Server
+  variables:
+    baseUrl:
+      default: http://localhost:8024
+tags:
+- name: Snapshots
+paths:
+  /snapshots/{aggregateId}:
+    get:
+      operationId: getSnapshots
+      summary: Axon Framework - Get Snapshots for an Aggregate
+      description: Returns snapshots for a specific aggregate.
+      tags:
+      - Snapshots
+      parameters:
+      - name: aggregateId
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: context
+        in: query
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Event'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+    post:
+      operationId: appendSnapshot
+      summary: Axon Framework - Append a Snapshot
+      description: Appends a new snapshot for an aggregate.
+      tags:
+      - Snapshots
+      parameters:
+      - name: aggregateId
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: context
+        in: query
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Event'
+      responses:
+        '200':
+          description: Snapshot appended
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+components:
+  schemas:
+    Event:
+      type: object
+      properties:
+        messageIdentifier:
+          type: string
+        aggregateIdentifier:
+          type: string
+        aggregateSequenceNumber:
+          type: integer
+          format: int64
+        aggregateType:
+          type: string
+        timestamp:
+          type: integer
+          format: int64
+        payloadType:
+          type: string
+        payloadRevision:
+          type: string
+        payloadData:
+          type: string
+        metaData:
+          type: object

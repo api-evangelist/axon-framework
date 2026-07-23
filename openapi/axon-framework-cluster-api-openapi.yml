@@ -1,0 +1,77 @@
+openapi: 3.1.0
+info:
+  title: Axon Server REST Applications Cluster API
+  description: The Axon Server REST API provides HTTP endpoints for managing the Axon Server event store, command routing, query handling, application contexts, users, and cluster configuration.
+  version: 4.9.0
+  contact:
+    name: AxonIQ
+    url: https://www.axoniq.io/
+  license:
+    name: AxonIQ Open Source License
+    url: https://www.axoniq.io/
+servers:
+- url: '{baseUrl}/v1'
+  description: Axon Server
+  variables:
+    baseUrl:
+      default: http://localhost:8024
+tags:
+- name: Cluster
+paths:
+  /cluster:
+    get:
+      operationId: getClusterInfo
+      summary: Axon Framework - Get Cluster Information
+      description: Returns information about the Axon Server cluster.
+      tags:
+      - Cluster
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ClusterNode'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /cluster/{nodeName}:
+    delete:
+      operationId: removeNode
+      summary: Axon Framework - Remove a Node from the Cluster
+      description: Removes a node from the Axon Server cluster.
+      tags:
+      - Cluster
+      parameters:
+      - name: nodeName
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Node removed
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+components:
+  schemas:
+    ClusterNode:
+      type: object
+      properties:
+        name:
+          type: string
+        hostName:
+          type: string
+        grpcPort:
+          type: integer
+        httpPort:
+          type: integer
+        internalHostName:
+          type: string
+        internalGrpcPort:
+          type: integer
+        connected:
+          type: boolean

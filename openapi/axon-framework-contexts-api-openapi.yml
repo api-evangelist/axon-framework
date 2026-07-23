@@ -1,0 +1,129 @@
+openapi: 3.1.0
+info:
+  title: Axon Server REST Applications Contexts API
+  description: The Axon Server REST API provides HTTP endpoints for managing the Axon Server event store, command routing, query handling, application contexts, users, and cluster configuration.
+  version: 4.9.0
+  contact:
+    name: AxonIQ
+    url: https://www.axoniq.io/
+  license:
+    name: AxonIQ Open Source License
+    url: https://www.axoniq.io/
+servers:
+- url: '{baseUrl}/v1'
+  description: Axon Server
+  variables:
+    baseUrl:
+      default: http://localhost:8024
+tags:
+- name: Contexts
+paths:
+  /context:
+    get:
+      operationId: listContexts
+      summary: Axon Framework - List Contexts
+      description: Returns all application contexts.
+      tags:
+      - Contexts
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Context'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+    post:
+      operationId: createContext
+      summary: Axon Framework - Create a Context
+      description: Creates a new application context.
+      tags:
+      - Contexts
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateContextRequest'
+      responses:
+        '200':
+          description: Context created
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /context/{contextName}:
+    get:
+      operationId: getContext
+      summary: Axon Framework - Get a Context
+      description: Returns details of a specific context.
+      tags:
+      - Contexts
+      parameters:
+      - name: contextName
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Context'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+    delete:
+      operationId: deleteContext
+      summary: Axon Framework - Delete a Context
+      description: Deletes an application context.
+      tags:
+      - Contexts
+      parameters:
+      - name: contextName
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Context deleted
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+components:
+  schemas:
+    Context:
+      type: object
+      properties:
+        context:
+          type: string
+        leader:
+          type: string
+        roles:
+          type: array
+          items:
+            type: object
+            properties:
+              node:
+                type: string
+              role:
+                type: string
+    CreateContextRequest:
+      type: object
+      required:
+      - context
+      properties:
+        context:
+          type: string
+        replicationGroup:
+          type: string
+        nodes:
+          type: array
+          items:
+            type: object

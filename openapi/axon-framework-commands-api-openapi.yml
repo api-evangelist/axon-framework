@@ -1,0 +1,55 @@
+openapi: 3.1.0
+info:
+  title: Axon Server REST Applications Commands API
+  description: The Axon Server REST API provides HTTP endpoints for managing the Axon Server event store, command routing, query handling, application contexts, users, and cluster configuration.
+  version: 4.9.0
+  contact:
+    name: AxonIQ
+    url: https://www.axoniq.io/
+  license:
+    name: AxonIQ Open Source License
+    url: https://www.axoniq.io/
+servers:
+- url: '{baseUrl}/v1'
+  description: Axon Server
+  variables:
+    baseUrl:
+      default: http://localhost:8024
+tags:
+- name: Commands
+paths:
+  /commands:
+    get:
+      operationId: listCommandHandlers
+      summary: Axon Framework - List Command Handlers
+      description: Returns registered command handlers and their routing information.
+      tags:
+      - Commands
+      parameters:
+      - name: context
+        in: query
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/CommandHandler'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+components:
+  schemas:
+    CommandHandler:
+      type: object
+      properties:
+        command:
+          type: string
+        clientId:
+          type: string
+        componentName:
+          type: string

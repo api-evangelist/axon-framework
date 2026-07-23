@@ -1,0 +1,57 @@
+openapi: 3.1.0
+info:
+  title: Axon Server REST Applications API
+  description: The Axon Server REST API provides HTTP endpoints for managing the Axon Server event store, command routing, query handling, application contexts, users, and cluster configuration.
+  version: 4.9.0
+  contact:
+    name: AxonIQ
+    url: https://www.axoniq.io/
+  license:
+    name: AxonIQ Open Source License
+    url: https://www.axoniq.io/
+servers:
+- url: '{baseUrl}/v1'
+  description: Axon Server
+  variables:
+    baseUrl:
+      default: http://localhost:8024
+tags:
+- name: Applications
+paths:
+  /applications:
+    get:
+      operationId: listApplications
+      summary: Axon Framework - List Applications
+      description: Returns all registered applications (connected clients).
+      tags:
+      - Applications
+      parameters:
+      - name: context
+        in: query
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Application'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+components:
+  schemas:
+    Application:
+      type: object
+      properties:
+        name:
+          type: string
+        context:
+          type: string
+        componentName:
+          type: string
+        connectedFrom:
+          type: string
