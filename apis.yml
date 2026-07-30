@@ -5,7 +5,19 @@ description: >-
   Segregation) and event sourcing patterns, providing the building blocks to implement scalable and maintainable
   distributed systems.
 type: Index
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+accessModel:
+  pricing: freemium
+  onboarding: unknown
+  trial: false
+  try_now: false
+  public: false
+  label: Freemium
+  confidence: medium
+  source:
+  - plans
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/axon-framework.png
 tags:
   - CQRS
   - Event Sourcing
@@ -18,26 +30,114 @@ created: '2026-03-26'
 modified: '2026-04-19'
 specificationVersion: '0.19'
 apis:
-  - aid: axon-framework:axon-framework
-    name: Axon Framework
-    description: >-
-      Axon Framework is a Java framework for building event-driven microservices using CQRS and event sourcing patterns,
-      providing infrastructure components for command handling, event processing, and query handling in distributed
-      systems.
-    humanURL: https://www.axoniq.io/products/axon-framework
-    tags:
-      - CQRS
-      - Event Sourcing
-      - Event-Driven
-      - Java
-      - Messaging
-      - Microservices
-    properties:
-      - type: OpenAPI
-        url: openapi/axon-server-api.yml
-      - type: APIReference
-        url: https://docs.axoniq.io/axon-server/administration/axon-server-api
-    baseURL: https://axonserver:8024
+- aid: axon-framework:axon-framework-applications-api
+  name: Axon Framework Applications API
+  description: The Applications API from Axon Framework — 1 operation(s) for applications.
+  humanURL: https://www.axoniq.io/products/axon-framework
+  baseURL: https://axonserver:8024
+  tags:
+  - Applications
+  properties:
+  - type: OpenAPI
+    url: openapi/axon-framework-applications-api-openapi.yml
+  - type: APIReference
+    url: https://docs.axoniq.io/axon-server/administration/axon-server-api
+- aid: axon-framework:axon-framework-cluster-api
+  name: Axon Framework Cluster API
+  description: The Cluster API from Axon Framework — 2 operation(s) for cluster.
+  humanURL: https://www.axoniq.io/products/axon-framework
+  baseURL: https://axonserver:8024
+  tags:
+  - Cluster
+  properties:
+  - type: OpenAPI
+    url: openapi/axon-framework-cluster-api-openapi.yml
+  - type: APIReference
+    url: https://docs.axoniq.io/axon-server/administration/axon-server-api
+- aid: axon-framework:axon-framework-commands-api
+  name: Axon Framework Commands API
+  description: The Commands API from Axon Framework — 1 operation(s) for commands.
+  humanURL: https://www.axoniq.io/products/axon-framework
+  baseURL: https://axonserver:8024
+  tags:
+  - Commands
+  properties:
+  - type: OpenAPI
+    url: openapi/axon-framework-commands-api-openapi.yml
+  - type: APIReference
+    url: https://docs.axoniq.io/axon-server/administration/axon-server-api
+- aid: axon-framework:axon-framework-contexts-api
+  name: Axon Framework Contexts API
+  description: The Contexts API from Axon Framework — 2 operation(s) for contexts.
+  humanURL: https://www.axoniq.io/products/axon-framework
+  baseURL: https://axonserver:8024
+  tags:
+  - Contexts
+  properties:
+  - type: OpenAPI
+    url: openapi/axon-framework-contexts-api-openapi.yml
+  - type: APIReference
+    url: https://docs.axoniq.io/axon-server/administration/axon-server-api
+- aid: axon-framework:axon-framework-event-processors-api
+  name: Axon Framework Event Processors API
+  description: The Event Processors API from Axon Framework — 3 operation(s) for event processors.
+  humanURL: https://www.axoniq.io/products/axon-framework
+  baseURL: https://axonserver:8024
+  tags:
+  - Event Processors
+  properties:
+  - type: OpenAPI
+    url: openapi/axon-framework-event-processors-api-openapi.yml
+  - type: APIReference
+    url: https://docs.axoniq.io/axon-server/administration/axon-server-api
+- aid: axon-framework:axon-framework-events-api
+  name: Axon Framework Events API
+  description: The Events API from Axon Framework — 2 operation(s) for events.
+  humanURL: https://www.axoniq.io/products/axon-framework
+  baseURL: https://axonserver:8024
+  tags:
+  - Events
+  properties:
+  - type: OpenAPI
+    url: openapi/axon-framework-events-api-openapi.yml
+  - type: APIReference
+    url: https://docs.axoniq.io/axon-server/administration/axon-server-api
+- aid: axon-framework:axon-framework-queries-api
+  name: Axon Framework Queries API
+  description: The Queries API from Axon Framework — 1 operation(s) for queries.
+  humanURL: https://www.axoniq.io/products/axon-framework
+  baseURL: https://axonserver:8024
+  tags:
+  - Queries
+  properties:
+  - type: OpenAPI
+    url: openapi/axon-framework-queries-api-openapi.yml
+  - type: APIReference
+    url: https://docs.axoniq.io/axon-server/administration/axon-server-api
+- aid: axon-framework:axon-framework-snapshots-api
+  name: Axon Framework Snapshots API
+  description: The Snapshots API from Axon Framework — 1 operation(s) for snapshots.
+  humanURL: https://www.axoniq.io/products/axon-framework
+  baseURL: https://axonserver:8024
+  tags:
+  - Snapshots
+  properties:
+  - type: OpenAPI
+    url: openapi/axon-framework-snapshots-api-openapi.yml
+  - type: APIReference
+    url: https://docs.axoniq.io/axon-server/administration/axon-server-api
+- aid: axon-framework:axon-framework-users-api
+  name: Axon Framework Users API
+  description: The Users API from Axon Framework — 2 operation(s) for users.
+  humanURL: https://www.axoniq.io/products/axon-framework
+  baseURL: https://axonserver:8024
+  tags:
+  - Users
+  properties:
+  - type: OpenAPI
+    url: openapi/axon-framework-users-api-openapi.yml
+  - type: APIReference
+    url: https://docs.axoniq.io/axon-server/administration/axon-server-api
 common:
   - type: AgenticAccess
     url: agentic-access/axon-framework-agentic-access.yml
