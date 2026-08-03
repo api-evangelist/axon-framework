@@ -1,0 +1,30 @@
+{
+  "provider": "axon-framework",
+  "sources": [
+    "axon-framework-applications-api-openapi.yml",
+    "axon-framework-cluster-api-openapi.yml",
+    "axon-framework-commands-api-openapi.yml",
+    "axon-framework-contexts-api-openapi.yml",
+    "axon-framework-event-processors-api-openapi.yml",
+    "axon-framework-events-api-openapi.yml",
+    "axon-framework-queries-api-openapi.yml",
+    "axon-framework-snapshots-api-openapi.yml",
+    "axon-framework-users-api-openapi.yml"
+  ],
+  "outputs": [
+    "axon-framework-applications-api-openapi.yml",
+    "axon-framework-cluster-api-openapi.yml",
+    "axon-framework-commands-api-openapi.yml",
+    "axon-framework-contexts-api-openapi.yml",
+    "axon-framework-event-processors-api-openapi.yml",
+    "axon-framework-events-api-openapi.yml",
+    "axon-framework-queries-api-openapi.yml",
+    "axon-framework-snapshots-api-openapi.yml",
+    "axon-framework-users-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
