@@ -139,6 +139,15 @@ apis:
   - type: APIReference
     url: https://docs.axoniq.io/axon-server/administration/axon-server-api
 common:
+  - type: IssueTracker
+    url: https://github.com/AxonFramework/AxonFramework/issues
+  - type: Releases
+    url: https://github.com/AxonFramework/AxonFramework/releases
+  - type: ContributionGuide
+    url: https://github.com/AxonIQ/AxonFramework/blob/main/CONTRIBUTING.md
+  - type: License
+    name: Apache-2.0
+    url: https://github.com/AxonFramework/AxonFramework/blob/main/LICENSE
   - type: AgenticAccess
     url: agentic-access/axon-framework-agentic-access.yml
   - type: DomainSecurity
