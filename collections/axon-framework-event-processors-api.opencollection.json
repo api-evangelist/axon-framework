@@ -1,0 +1,92 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Axon Server REST Applications Event Processors API",
+    "version": "4.9.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Event Processors",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Axon Framework - List Event Processors",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{baseUrl}/v1/processors",
+            "params": [
+              {
+                "name": "context",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Returns all tracking event processors and their status."
+        },
+        {
+          "info": {
+            "name": "Axon Framework - Pause an Event Processor",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "{baseUrl}/v1/processors/:processorName/pause",
+            "params": [
+              {
+                "name": "processorName",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "context",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "tokenStoreIdentifier",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Pauses a tracking event processor."
+        },
+        {
+          "info": {
+            "name": "Axon Framework - Start an Event Processor",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "{baseUrl}/v1/processors/:processorName/start",
+            "params": [
+              {
+                "name": "processorName",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "context",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "tokenStoreIdentifier",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Starts a paused tracking event processor."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

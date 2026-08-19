@@ -1,0 +1,96 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Axon Server REST Applications Events API",
+    "version": "4.9.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Events",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Axon Framework - List Events",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{baseUrl}/v1/events",
+            "params": [
+              {
+                "name": "context",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "trackingToken",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "numberOfEvents",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Returns events from the event store with optional filtering."
+        },
+        {
+          "info": {
+            "name": "Axon Framework - Append an Event",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{baseUrl}/v1/events",
+            "params": [
+              {
+                "name": "context",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Appends a new event to the event store."
+        },
+        {
+          "info": {
+            "name": "Axon Framework - Get Events for an Aggregate",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{baseUrl}/v1/events/aggregates/:aggregateId",
+            "params": [
+              {
+                "name": "aggregateId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "context",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "initialSequence",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Returns all events for a specific aggregate."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

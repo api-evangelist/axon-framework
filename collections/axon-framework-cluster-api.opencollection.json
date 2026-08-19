@@ -1,0 +1,47 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Axon Server REST Applications Cluster API",
+    "version": "4.9.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Cluster",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Axon Framework - Get Cluster Information",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{baseUrl}/v1/cluster"
+          },
+          "docs": "Returns information about the Axon Server cluster."
+        },
+        {
+          "info": {
+            "name": "Axon Framework - Remove a Node from the Cluster",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{baseUrl}/v1/cluster/:nodeName",
+            "params": [
+              {
+                "name": "nodeName",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Removes a node from the Axon Server cluster."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

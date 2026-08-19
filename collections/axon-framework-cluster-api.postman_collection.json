@@ -1,0 +1,225 @@
+{
+  "item": [
+    {
+      "id": "a8403b80-9f59-45cc-8f3b-12e21720af62",
+      "name": "Cluster",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "8e142e75-170a-4eab-b229-c1d64f61e3f8",
+          "name": "Axon Framework - Get Cluster Information",
+          "request": {
+            "name": "Axon Framework - Get Cluster Information",
+            "description": {
+              "content": "Returns information about the Axon Server cluster.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "cluster"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": {
+                    "content": "",
+                    "type": "text/plain"
+                  },
+                  "type": "any",
+                  "value": "{{baseUrl}}",
+                  "key": "baseUrl"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "d64a3862-ad00-407b-84a4-863be0df9832",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "cluster"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "{{baseUrl}}",
+                      "key": "baseUrl"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"name\": \"string\",\n    \"hostName\": \"string\",\n    \"grpcPort\": 1488,\n    \"httpPort\": 6955,\n    \"internalHostName\": \"string\",\n    \"internalGrpcPort\": 663,\n    \"connected\": false\n  },\n  {\n    \"name\": \"string\",\n    \"hostName\": \"string\",\n    \"grpcPort\": 4913,\n    \"httpPort\": 3745,\n    \"internalHostName\": \"string\",\n    \"internalGrpcPort\": 7380,\n    \"connected\": true\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "037b1cd2-c404-4d7f-a073-0bc1ae0625ab",
+          "name": "Axon Framework - Remove a Node from the Cluster",
+          "request": {
+            "name": "Axon Framework - Remove a Node from the Cluster",
+            "description": {
+              "content": "Removes a node from the Axon Server cluster.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "cluster",
+                ":nodeName"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "nodeName",
+                  "description": "(Required) "
+                },
+                {
+                  "description": {
+                    "content": "",
+                    "type": "text/plain"
+                  },
+                  "type": "any",
+                  "value": "{{baseUrl}}",
+                  "key": "baseUrl"
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "a3a4bee6-b6ff-40ff-8855-e0f32c8cad77",
+              "name": "Node removed",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "cluster",
+                    ":nodeName"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "nodeName",
+                      "description": "(Required) "
+                    },
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "{{baseUrl}}",
+                      "key": "baseUrl"
+                    }
+                  ]
+                },
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "http://localhost:8024",
+      "key": "baseUrl"
+    },
+    {
+      "type": "string",
+      "value": "{{baseUrl}}/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "699ab1a4-9c11-4c40-b552-bb0cb8224b48",
+    "name": "Axon Server REST Applications Cluster API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Axon Server REST API provides HTTP endpoints for managing the Axon Server event store, command routing, query handling, application contexts, users, and cluster configuration.\n\nContact Support:\n Name: AxonIQ",
+      "type": "text/plain"
+    }
+  }
+}

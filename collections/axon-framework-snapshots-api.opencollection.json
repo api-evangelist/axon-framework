@@ -1,0 +1,68 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Axon Server REST Applications Snapshots API",
+    "version": "4.9.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Snapshots",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Axon Framework - Get Snapshots for an Aggregate",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{baseUrl}/v1/snapshots/:aggregateId",
+            "params": [
+              {
+                "name": "aggregateId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "context",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Returns snapshots for a specific aggregate."
+        },
+        {
+          "info": {
+            "name": "Axon Framework - Append a Snapshot",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{baseUrl}/v1/snapshots/:aggregateId",
+            "params": [
+              {
+                "name": "aggregateId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "context",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Appends a new snapshot for an aggregate."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

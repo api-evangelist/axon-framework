@@ -1,0 +1,400 @@
+{
+  "item": [
+    {
+      "id": "3fdf0e16-287a-414e-adb1-b18269450d8c",
+      "name": "Events",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "6db3f42d-6cae-4112-b417-5cddbd7bd3ad",
+          "name": "Axon Framework - List Events",
+          "request": {
+            "name": "Axon Framework - List Events",
+            "description": {
+              "content": "Returns events from the event store with optional filtering.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "events"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "context",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "trackingToken",
+                  "value": "<long>"
+                },
+                {
+                  "disabled": false,
+                  "key": "numberOfEvents",
+                  "value": "<integer>"
+                }
+              ],
+              "variable": [
+                {
+                  "description": {
+                    "content": "",
+                    "type": "text/plain"
+                  },
+                  "type": "any",
+                  "value": "{{baseUrl}}",
+                  "key": "baseUrl"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "080071b9-1fd8-4884-92a6-96472fc08d26",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "events"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "context",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "trackingToken",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "numberOfEvents",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "{{baseUrl}}",
+                      "key": "baseUrl"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"messageIdentifier\": \"string\",\n    \"aggregateIdentifier\": \"string\",\n    \"aggregateSequenceNumber\": 9142,\n    \"aggregateType\": \"string\",\n    \"timestamp\": 6217,\n    \"payloadType\": \"string\",\n    \"payloadRevision\": \"string\",\n    \"payloadData\": \"string\",\n    \"metaData\": {}\n  },\n  {\n    \"messageIdentifier\": \"string\",\n    \"aggregateIdentifier\": \"string\",\n    \"aggregateSequenceNumber\": 6300,\n    \"aggregateType\": \"string\",\n    \"timestamp\": 4228,\n    \"payloadType\": \"string\",\n    \"payloadRevision\": \"string\",\n    \"payloadData\": \"string\",\n    \"metaData\": {}\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "8daef135-ad2a-4bf0-b7b8-37c742565ea6",
+          "name": "Axon Framework - Append an Event",
+          "request": {
+            "name": "Axon Framework - Append an Event",
+            "description": {
+              "content": "Appends a new event to the event store.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "events"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "context",
+                  "value": "<string>"
+                }
+              ],
+              "variable": [
+                {
+                  "description": {
+                    "content": "",
+                    "type": "text/plain"
+                  },
+                  "type": "any",
+                  "value": "{{baseUrl}}",
+                  "key": "baseUrl"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"messageIdentifier\": \"<string>\",\n  \"aggregateIdentifier\": \"<string>\",\n  \"aggregateSequenceNumber\": \"<long>\",\n  \"aggregateType\": \"<string>\",\n  \"timestamp\": \"<long>\",\n  \"payloadType\": \"<string>\",\n  \"payloadRevision\": \"<string>\",\n  \"payloadData\": \"<string>\",\n  \"metaData\": \"<object>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "950123a6-a4eb-4fbd-8108-8398e8273869",
+              "name": "Event appended",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "events"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "context",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "{{baseUrl}}",
+                      "key": "baseUrl"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"messageIdentifier\": \"<string>\",\n  \"aggregateIdentifier\": \"<string>\",\n  \"aggregateSequenceNumber\": \"<long>\",\n  \"aggregateType\": \"<string>\",\n  \"timestamp\": \"<long>\",\n  \"payloadType\": \"<string>\",\n  \"payloadRevision\": \"<string>\",\n  \"payloadData\": \"<string>\",\n  \"metaData\": \"<object>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "57b3d94e-588c-4b3a-bf5a-360f5c17c39a",
+          "name": "Axon Framework - Get Events for an Aggregate",
+          "request": {
+            "name": "Axon Framework - Get Events for an Aggregate",
+            "description": {
+              "content": "Returns all events for a specific aggregate.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "events",
+                "aggregates",
+                ":aggregateId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "context",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "initialSequence",
+                  "value": "<long>"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "aggregateId",
+                  "description": "(Required) "
+                },
+                {
+                  "description": {
+                    "content": "",
+                    "type": "text/plain"
+                  },
+                  "type": "any",
+                  "value": "{{baseUrl}}",
+                  "key": "baseUrl"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "7cd53d4a-b5c0-40f5-9f8a-9af098b90172",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "events",
+                    "aggregates",
+                    ":aggregateId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "context",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "initialSequence",
+                      "value": "<long>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "aggregateId",
+                      "description": "(Required) "
+                    },
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "{{baseUrl}}",
+                      "key": "baseUrl"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"messageIdentifier\": \"string\",\n    \"aggregateIdentifier\": \"string\",\n    \"aggregateSequenceNumber\": 9142,\n    \"aggregateType\": \"string\",\n    \"timestamp\": 6217,\n    \"payloadType\": \"string\",\n    \"payloadRevision\": \"string\",\n    \"payloadData\": \"string\",\n    \"metaData\": {}\n  },\n  {\n    \"messageIdentifier\": \"string\",\n    \"aggregateIdentifier\": \"string\",\n    \"aggregateSequenceNumber\": 6300,\n    \"aggregateType\": \"string\",\n    \"timestamp\": 4228,\n    \"payloadType\": \"string\",\n    \"payloadRevision\": \"string\",\n    \"payloadData\": \"string\",\n    \"metaData\": {}\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "http://localhost:8024",
+      "key": "baseUrl"
+    },
+    {
+      "type": "string",
+      "value": "{{baseUrl}}/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "37915d8c-c349-4f1c-84d2-0048ffcdd038",
+    "name": "Axon Server REST Applications Events API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Axon Server REST API provides HTTP endpoints for managing the Axon Server event store, command routing, query handling, application contexts, users, and cluster configuration.\n\nContact Support:\n Name: AxonIQ",
+      "type": "text/plain"
+    }
+  }
+}
