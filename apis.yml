@@ -36,6 +36,8 @@ apis:
   humanURL: https://www.axoniq.io/products/axon-framework
   baseURL: https://axonserver:8024
   tags:
+  - Application
+  tags_raw:
   - Applications
   properties:
   - type: OpenAPI
@@ -72,6 +74,8 @@ apis:
   humanURL: https://www.axoniq.io/products/axon-framework
   baseURL: https://axonserver:8024
   tags:
+  - Context
+  tags_raw:
   - Contexts
   properties:
   - type: OpenAPI
@@ -96,6 +100,8 @@ apis:
   humanURL: https://www.axoniq.io/products/axon-framework
   baseURL: https://axonserver:8024
   tags:
+  - Event
+  tags_raw:
   - Events
   properties:
   - type: OpenAPI
@@ -108,6 +114,8 @@ apis:
   humanURL: https://www.axoniq.io/products/axon-framework
   baseURL: https://axonserver:8024
   tags:
+  - Query
+  tags_raw:
   - Queries
   properties:
   - type: OpenAPI
@@ -132,6 +140,8 @@ apis:
   humanURL: https://www.axoniq.io/products/axon-framework
   baseURL: https://axonserver:8024
   tags:
+  - User
+  tags_raw:
   - Users
   properties:
   - type: OpenAPI
