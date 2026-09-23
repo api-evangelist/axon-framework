@@ -1,15 +1,7 @@
 {
   "provider": "axon-framework",
   "sources": [
-    "axon-framework-applications-api-openapi.yml",
-    "axon-framework-cluster-api-openapi.yml",
-    "axon-framework-commands-api-openapi.yml",
-    "axon-framework-contexts-api-openapi.yml",
-    "axon-framework-event-processors-api-openapi.yml",
-    "axon-framework-events-api-openapi.yml",
-    "axon-framework-queries-api-openapi.yml",
-    "axon-framework-snapshots-api-openapi.yml",
-    "axon-framework-users-api-openapi.yml"
+    "_original/axon-server-api.yml"
   ],
   "outputs": [
     "axon-framework-applications-api-openapi.yml",
@@ -25,6 +17,29 @@
   "archived": [],
   "errors": [],
   "warnings": [],
-  "notes": [],
-  "skipped": []
+  "notes": [
+    "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "axon-server-api.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "axon-server-api.yml: declared missing tag: Applications",
+    "axon-server-api.yml: declared missing tag: Cluster",
+    "axon-server-api.yml: declared missing tag: Commands",
+    "axon-server-api.yml: declared missing tag: Contexts",
+    "axon-server-api.yml: declared missing tag: Event Processors",
+    "axon-server-api.yml: declared missing tag: Events",
+    "axon-server-api.yml: declared missing tag: Queries",
+    "axon-server-api.yml: declared missing tag: Snapshots",
+    "axon-server-api.yml: declared missing tag: Users",
+    "apis.yml register: already-registered"
+  ],
+  "skipped": [
+    "axon-framework-applications-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "axon-framework-cluster-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "axon-framework-commands-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "axon-framework-contexts-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "axon-framework-event-processors-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "axon-framework-events-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "axon-framework-queries-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "axon-framework-snapshots-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "axon-framework-users-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }
