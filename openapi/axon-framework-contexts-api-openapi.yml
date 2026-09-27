@@ -98,6 +98,19 @@ paths:
         dispatcher: FALLBACK
 components:
   schemas:
+    CreateContextRequest:
+      type: object
+      required:
+      - context
+      properties:
+        context:
+          type: string
+        replicationGroup:
+          type: string
+        nodes:
+          type: array
+          items:
+            type: object
     Context:
       type: object
       properties:
@@ -114,16 +127,3 @@ components:
                 type: string
               role:
                 type: string
-    CreateContextRequest:
-      type: object
-      required:
-      - context
-      properties:
-        context:
-          type: string
-        replicationGroup:
-          type: string
-        nodes:
-          type: array
-          items:
-            type: object
