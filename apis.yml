@@ -163,6 +163,8 @@ apis:
   - type: APIReference
     url: https://docs.axoniq.io/axon-server/administration/axon-server-api
 common:
+  - type: PostmanWorkspace
+    url: https://www.postman.com/kinlaneapi/axon-framework/overview
   - type: Plans
     url: plans/axon-framework-plans-pricing.yml
   - type: RateLimits
