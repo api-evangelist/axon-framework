@@ -1,203 +1,43 @@
 {
+  "info": {
+    "_postman_id": "0c17ac2a-763f-4082-8385-5852143ba97e",
+    "name": "Axon Server REST Snapshots API",
+    "description": "The Axon Server REST API provides HTTP endpoints for managing the Axon Server event store, command routing, query handling, application contexts, users, and cluster configuration.\n\nContact Support:\n Name: AxonIQ",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-22T02:23:27.000Z",
+    "updatedAt": "2026-10-22T02:23:27.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-0c17ac2a-763f-4082-8385-5852143ba97e"
+  },
   "item": [
     {
-      "id": "f0b23fab-7b1a-4068-b7d6-34c8e706db03",
-      "name": "Snapshots",
-      "description": {
-        "content": "",
-        "type": "text/plain"
-      },
+      "name": "snapshots",
       "item": [
         {
-          "id": "619554be-4536-4c86-9e72-c65feab9179a",
-          "name": "Axon Framework - Get Snapshots for an Aggregate",
-          "request": {
-            "name": "Axon Framework - Get Snapshots for an Aggregate",
-            "description": {
-              "content": "Returns snapshots for a specific aggregate.",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "snapshots",
-                ":aggregateId"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [
-                {
-                  "disabled": false,
-                  "key": "context",
-                  "value": "<string>"
-                }
-              ],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "aggregateId",
-                  "description": "(Required) "
-                },
-                {
-                  "description": {
-                    "content": "",
-                    "type": "text/plain"
-                  },
-                  "type": "any",
-                  "value": "{{baseUrl}}",
-                  "key": "baseUrl"
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
+          "name": "{aggregateId}",
+          "item": [
             {
-              "id": "66d1ce65-fc1f-4a0c-86ec-eb54296586fb",
-              "name": "Successful response",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "snapshots",
-                    ":aggregateId"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "context",
-                      "value": "<string>"
-                    }
-                  ],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "aggregateId",
-                      "description": "(Required) "
-                    },
-                    {
-                      "description": {
-                        "content": "",
-                        "type": "text/plain"
-                      },
-                      "type": "any",
-                      "value": "{{baseUrl}}",
-                      "key": "baseUrl"
-                    }
-                  ]
-                },
+              "name": "Axon Framework - Get Snapshots for an Aggregate",
+              "id": "d41dd253-415c-4f54-ba7a-bef73ddad140",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
                 "header": [
                   {
                     "key": "Accept",
                     "value": "application/json"
                   }
                 ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "[\n  {\n    \"messageIdentifier\": \"string\",\n    \"aggregateIdentifier\": \"string\",\n    \"aggregateSequenceNumber\": 8062,\n    \"aggregateType\": \"string\",\n    \"timestamp\": 5052,\n    \"payloadType\": \"string\",\n    \"payloadRevision\": \"string\",\n    \"payloadData\": \"string\",\n    \"metaData\": {}\n  },\n  {\n    \"messageIdentifier\": \"string\",\n    \"aggregateIdentifier\": \"string\",\n    \"aggregateSequenceNumber\": 8568,\n    \"aggregateType\": \"string\",\n    \"timestamp\": 3685,\n    \"payloadType\": \"string\",\n    \"payloadRevision\": \"string\",\n    \"payloadData\": \"string\",\n    \"metaData\": {}\n  }\n]",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "1dd02c5c-c026-4a18-be37-6c715c421226",
-          "name": "Axon Framework - Append a Snapshot",
-          "request": {
-            "name": "Axon Framework - Append a Snapshot",
-            "description": {
-              "content": "Appends a new snapshot for an aggregate.",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "snapshots",
-                ":aggregateId"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [
-                {
-                  "disabled": false,
-                  "key": "context",
-                  "value": "<string>"
-                }
-              ],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "aggregateId",
-                  "description": "(Required) "
-                },
-                {
-                  "description": {
-                    "content": "",
-                    "type": "text/plain"
-                  },
-                  "type": "any",
-                  "value": "{{baseUrl}}",
-                  "key": "baseUrl"
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Content-Type",
-                "value": "application/json"
-              }
-            ],
-            "method": "POST",
-            "auth": null,
-            "body": {
-              "mode": "raw",
-              "raw": "{\n  \"messageIdentifier\": \"<string>\",\n  \"aggregateIdentifier\": \"<string>\",\n  \"aggregateSequenceNumber\": \"<long>\",\n  \"aggregateType\": \"<string>\",\n  \"timestamp\": \"<long>\",\n  \"payloadType\": \"<string>\",\n  \"payloadRevision\": \"<string>\",\n  \"payloadData\": \"<string>\",\n  \"metaData\": \"<object>\"\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            }
-          },
-          "response": [
-            {
-              "id": "94fb8706-818e-4f79-b92b-3295bab89ed7",
-              "name": "Snapshot appended",
-              "originalRequest": {
                 "url": {
+                  "raw": "{{baseUrl}}/snapshots/:aggregateId?context=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
                   "path": [
                     "snapshots",
                     ":aggregateId"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
                   ],
                   "query": [
                     {
@@ -207,80 +47,197 @@
                   ],
                   "variable": [
                     {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
+                      "id": "a61edef2-f9c3-446e-8ef7-b955933b071c",
                       "key": "aggregateId",
+                      "value": "<string>",
                       "description": "(Required) "
-                    },
-                    {
-                      "description": {
-                        "content": "",
-                        "type": "text/plain"
-                      },
-                      "type": "any",
-                      "value": "{{baseUrl}}",
-                      "key": "baseUrl"
                     }
                   ]
                 },
+                "description": "Returns snapshots for a specific aggregate."
+              },
+              "response": [
+                {
+                  "id": "63043b5e-f6cd-45d2-ae34-9da2663237ed",
+                  "name": "Successful response",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/snapshots/:aggregateId?context=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "snapshots",
+                        ":aggregateId"
+                      ],
+                      "query": [
+                        {
+                          "key": "context",
+                          "value": "<string>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "aggregateId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "[\n  {\n    \"messageIdentifier\": \"<string>\",\n    \"aggregateIdentifier\": \"<string>\",\n    \"aggregateSequenceNumber\": \"<long>\",\n    \"aggregateType\": \"<string>\",\n    \"timestamp\": \"<long>\",\n    \"payloadType\": \"<string>\",\n    \"payloadRevision\": \"<string>\",\n    \"payloadData\": \"<string>\",\n    \"metaData\": {}\n  },\n  {\n    \"messageIdentifier\": \"<string>\",\n    \"aggregateIdentifier\": \"<string>\",\n    \"aggregateSequenceNumber\": \"<long>\",\n    \"aggregateType\": \"<string>\",\n    \"timestamp\": \"<long>\",\n    \"payloadType\": \"<string>\",\n    \"payloadRevision\": \"<string>\",\n    \"payloadData\": \"<string>\",\n    \"metaData\": {}\n  }\n]",
+                  "createdAt": "2026-10-22T02:23:28.000Z",
+                  "updatedAt": "2026-10-22T02:23:28.000Z",
+                  "uid": "35240-63043b5e-f6cd-45d2-ae34-9da2663237ed"
+                }
+              ],
+              "createdAt": "2026-10-22T02:23:28.000Z",
+              "updatedAt": "2026-10-22T02:23:28.000Z",
+              "uid": "35240-d41dd253-415c-4f54-ba7a-bef73ddad140"
+            },
+            {
+              "name": "Axon Framework - Append a Snapshot",
+              "id": "df872776-0c36-46fd-a9d6-4b5b1ad60eb2",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
                 "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
                 "body": {
                   "mode": "raw",
-                  "raw": "{\n  \"messageIdentifier\": \"<string>\",\n  \"aggregateIdentifier\": \"<string>\",\n  \"aggregateSequenceNumber\": \"<long>\",\n  \"aggregateType\": \"<string>\",\n  \"timestamp\": \"<long>\",\n  \"payloadType\": \"<string>\",\n  \"payloadRevision\": \"<string>\",\n  \"payloadData\": \"<string>\",\n  \"metaData\": \"<object>\"\n}",
+                  "raw": "{\n  \"messageIdentifier\": \"<string>\",\n  \"aggregateIdentifier\": \"<string>\",\n  \"aggregateSequenceNumber\": \"<long>\",\n  \"aggregateType\": \"<string>\",\n  \"timestamp\": \"<long>\",\n  \"payloadType\": \"<string>\",\n  \"payloadRevision\": \"<string>\",\n  \"payloadData\": \"<string>\",\n  \"metaData\": {}\n}",
                   "options": {
                     "raw": {
+                      "headerFamily": "json",
                       "language": "json"
                     }
                   }
-                }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/snapshots/:aggregateId?context=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "snapshots",
+                    ":aggregateId"
+                  ],
+                  "query": [
+                    {
+                      "key": "context",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "id": "527de804-1455-436a-9c7a-b2ccd05e8f13",
+                      "key": "aggregateId",
+                      "value": "<string>",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "description": "Appends a new snapshot for an aggregate."
               },
-              "status": "OK",
-              "code": 200,
-              "header": [
+              "response": [
                 {
-                  "key": "Content-Type",
-                  "value": "text/plain"
+                  "id": "3220bf95-ab4c-4310-922a-4330f0a6950f",
+                  "name": "Snapshot appended",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"messageIdentifier\": \"<string>\",\n  \"aggregateIdentifier\": \"<string>\",\n  \"aggregateSequenceNumber\": \"<long>\",\n  \"aggregateType\": \"<string>\",\n  \"timestamp\": \"<long>\",\n  \"payloadType\": \"<string>\",\n  \"payloadRevision\": \"<string>\",\n  \"payloadData\": \"<string>\",\n  \"metaData\": {}\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/snapshots/:aggregateId?context=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "snapshots",
+                        ":aggregateId"
+                      ],
+                      "query": [
+                        {
+                          "key": "context",
+                          "value": "<string>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "aggregateId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-10-22T02:23:28.000Z",
+                  "updatedAt": "2026-10-22T02:23:28.000Z",
+                  "uid": "35240-3220bf95-ab4c-4310-922a-4330f0a6950f"
                 }
               ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
+              "createdAt": "2026-10-22T02:23:28.000Z",
+              "updatedAt": "2026-10-22T02:23:28.000Z",
+              "uid": "35240-df872776-0c36-46fd-a9d6-4b5b1ad60eb2"
             }
           ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
+          "id": "162c4b73-8f6d-4f98-80f9-e645db11f507",
+          "createdAt": "2026-10-22T02:23:27.000Z",
+          "updatedAt": "2026-10-22T02:23:27.000Z",
+          "uid": "35240-162c4b73-8f6d-4f98-80f9-e645db11f507"
         }
       ],
-      "event": []
+      "id": "9ae8bcb1-46b9-4e2b-a594-80da480e2de3",
+      "createdAt": "2026-10-22T02:23:27.000Z",
+      "updatedAt": "2026-10-22T02:23:27.000Z",
+      "uid": "35240-9ae8bcb1-46b9-4e2b-a594-80da480e2de3"
     }
   ],
-  "event": [],
   "variable": [
     {
-      "description": {
-        "content": "",
-        "type": "text/plain"
-      },
-      "type": "any",
-      "value": "http://localhost:8024",
-      "key": "baseUrl"
-    },
-    {
-      "type": "string",
-      "value": "{{baseUrl}}/v1",
-      "key": "baseUrl"
+      "key": "baseUrl",
+      "value": "http://localhost:8024"
     }
-  ],
-  "info": {
-    "_postman_id": "70581ff6-8567-4c62-a840-420abe0bbd85",
-    "name": "Axon Server REST Applications Snapshots API",
-    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-    "description": {
-      "content": "The Axon Server REST API provides HTTP endpoints for managing the Axon Server event store, command routing, query handling, application contexts, users, and cluster configuration.\n\nContact Support:\n Name: AxonIQ",
-      "type": "text/plain"
-    }
-  }
+  ]
 }

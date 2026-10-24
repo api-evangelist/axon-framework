@@ -1,432 +1,340 @@
 {
+  "info": {
+    "_postman_id": "64dce608-6a0d-44f2-997b-4c761148977e",
+    "name": "Axon Server REST Contexts API",
+    "description": "The Axon Server REST API provides HTTP endpoints for managing the Axon Server event store, command routing, query handling, application contexts, users, and cluster configuration.\n\nContact Support:\n Name: AxonIQ",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-22T02:23:02.000Z",
+    "updatedAt": "2026-10-22T02:23:03.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-64dce608-6a0d-44f2-997b-4c761148977e"
+  },
   "item": [
     {
-      "id": "0ad99a17-8736-4a50-9680-d4496e88ed2b",
-      "name": "Contexts",
-      "description": {
-        "content": "",
-        "type": "text/plain"
-      },
+      "name": "context",
       "item": [
         {
-          "id": "fb6903e6-26a3-410c-b9f3-88fdf9e79713",
-          "name": "Axon Framework - List Contexts",
-          "request": {
-            "name": "Axon Framework - List Contexts",
-            "description": {
-              "content": "Returns all application contexts.",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "context"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "description": {
-                    "content": "",
-                    "type": "text/plain"
-                  },
-                  "type": "any",
-                  "value": "{{baseUrl}}",
-                  "key": "baseUrl"
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
+          "name": "{contextName}",
+          "item": [
             {
-              "id": "ae661285-995f-4854-a1cd-9f1f8dd88889",
-              "name": "Successful response",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "context"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "description": {
-                        "content": "",
-                        "type": "text/plain"
-                      },
-                      "type": "any",
-                      "value": "{{baseUrl}}",
-                      "key": "baseUrl"
-                    }
-                  ]
-                },
+              "name": "Axon Framework - Get a Context",
+              "id": "9e1acd28-2d70-445b-b8dd-aebbce67792f",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
                 "header": [
                   {
                     "key": "Accept",
                     "value": "application/json"
                   }
                 ],
+                "url": {
+                  "raw": "{{baseUrl}}/context/:contextName",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "context",
+                    ":contextName"
+                  ],
+                  "variable": [
+                    {
+                      "id": "f34aa94a-15b2-4299-a209-25c1c7ca9f79",
+                      "key": "contextName",
+                      "value": "<string>",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "description": "Returns details of a specific context."
+              },
+              "response": [
+                {
+                  "id": "5639852f-bf5d-415f-806c-c09c46187e14",
+                  "name": "Successful response",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/context/:contextName",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "context",
+                        ":contextName"
+                      ],
+                      "variable": [
+                        {
+                          "key": "contextName"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"context\": \"<string>\",\n  \"leader\": \"<string>\",\n  \"roles\": [\n    {\n      \"node\": \"<string>\",\n      \"role\": \"<string>\"\n    },\n    {\n      \"node\": \"<string>\",\n      \"role\": \"<string>\"\n    }\n  ]\n}",
+                  "createdAt": "2026-10-22T02:23:03.000Z",
+                  "updatedAt": "2026-10-22T02:23:03.000Z",
+                  "uid": "35240-5639852f-bf5d-415f-806c-c09c46187e14"
+                }
+              ],
+              "createdAt": "2026-10-22T02:23:03.000Z",
+              "updatedAt": "2026-10-22T02:23:03.000Z",
+              "uid": "35240-9e1acd28-2d70-445b-b8dd-aebbce67792f"
+            },
+            {
+              "name": "Axon Framework - Delete a Context",
+              "id": "f381c2e0-59b5-49c8-9512-4e4c46315fd4",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "DELETE",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/context/:contextName",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "context",
+                    ":contextName"
+                  ],
+                  "variable": [
+                    {
+                      "id": "9eb77f6a-f086-4551-a14b-b8a673bd8642",
+                      "key": "contextName",
+                      "value": "<string>",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "description": "Deletes an application context."
+              },
+              "response": [
+                {
+                  "id": "45867e5a-6fde-444a-a0ac-40bf8f04b8ab",
+                  "name": "Context deleted",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/context/:contextName",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "context",
+                        ":contextName"
+                      ],
+                      "variable": [
+                        {
+                          "key": "contextName"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-10-22T02:23:03.000Z",
+                  "updatedAt": "2026-10-22T02:23:03.000Z",
+                  "uid": "35240-45867e5a-6fde-444a-a0ac-40bf8f04b8ab"
+                }
+              ],
+              "createdAt": "2026-10-22T02:23:03.000Z",
+              "updatedAt": "2026-10-22T02:23:03.000Z",
+              "uid": "35240-f381c2e0-59b5-49c8-9512-4e4c46315fd4"
+            }
+          ],
+          "id": "c05ce809-fe00-48f9-99f0-7161ce4a775a",
+          "createdAt": "2026-10-22T02:23:03.000Z",
+          "updatedAt": "2026-10-22T02:23:03.000Z",
+          "uid": "35240-c05ce809-fe00-48f9-99f0-7161ce4a775a"
+        },
+        {
+          "name": "Axon Framework - List Contexts",
+          "id": "ad90fd5c-258b-413f-a036-b1cff01fe62a",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/context",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "context"
+              ]
+            },
+            "description": "Returns all application contexts."
+          },
+          "response": [
+            {
+              "id": "7efec4b9-c6ee-415d-ba03-dee98679c294",
+              "name": "Successful response",
+              "originalRequest": {
                 "method": "GET",
-                "body": {}
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/context",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "context"
+                  ]
+                }
               },
               "status": "OK",
               "code": 200,
+              "_postman_previewlanguage": "json",
               "header": [
                 {
                   "key": "Content-Type",
                   "value": "application/json"
                 }
               ],
-              "body": "[\n  {\n    \"context\": \"string\",\n    \"leader\": \"string\",\n    \"roles\": [\n      {\n        \"node\": \"string\",\n        \"role\": \"string\"\n      },\n      {\n        \"node\": \"string\",\n        \"role\": \"string\"\n      }\n    ]\n  },\n  {\n    \"context\": \"string\",\n    \"leader\": \"string\",\n    \"roles\": [\n      {\n        \"node\": \"string\",\n        \"role\": \"string\"\n      },\n      {\n        \"node\": \"string\",\n        \"role\": \"string\"\n      }\n    ]\n  }\n]",
               "cookie": [],
-              "_postman_previewlanguage": "json"
+              "responseTime": null,
+              "body": "[\n  {\n    \"context\": \"<string>\",\n    \"leader\": \"<string>\",\n    \"roles\": [\n      {\n        \"node\": \"<string>\",\n        \"role\": \"<string>\"\n      },\n      {\n        \"node\": \"<string>\",\n        \"role\": \"<string>\"\n      }\n    ]\n  },\n  {\n    \"context\": \"<string>\",\n    \"leader\": \"<string>\",\n    \"roles\": [\n      {\n        \"node\": \"<string>\",\n        \"role\": \"<string>\"\n      },\n      {\n        \"node\": \"<string>\",\n        \"role\": \"<string>\"\n      }\n    ]\n  }\n]",
+              "createdAt": "2026-10-22T02:23:03.000Z",
+              "updatedAt": "2026-10-22T02:23:03.000Z",
+              "uid": "35240-7efec4b9-c6ee-415d-ba03-dee98679c294"
             }
           ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
+          "createdAt": "2026-10-22T02:23:03.000Z",
+          "updatedAt": "2026-10-22T02:23:03.000Z",
+          "uid": "35240-ad90fd5c-258b-413f-a036-b1cff01fe62a"
         },
         {
-          "id": "f2b8c6b1-d06e-4cc5-a4a5-6ebab0c4d195",
           "name": "Axon Framework - Create a Context",
+          "id": "f6e55ee3-74cf-46a0-8fa8-b7d685d4350c",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
           "request": {
-            "name": "Axon Framework - Create a Context",
-            "description": {
-              "content": "Creates a new application context.",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "context"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "description": {
-                    "content": "",
-                    "type": "text/plain"
-                  },
-                  "type": "any",
-                  "value": "{{baseUrl}}",
-                  "key": "baseUrl"
-                }
-              ]
-            },
+            "method": "POST",
             "header": [
               {
                 "key": "Content-Type",
                 "value": "application/json"
               }
             ],
-            "method": "POST",
-            "auth": null,
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"context\": \"<string>\",\n  \"replicationGroup\": \"<string>\",\n  \"nodes\": [\n    \"<object>\",\n    \"<object>\"\n  ]\n}",
+              "raw": "{\n  \"context\": \"<string>\",\n  \"replicationGroup\": \"<string>\"\n}",
               "options": {
                 "raw": {
+                  "headerFamily": "json",
                   "language": "json"
                 }
               }
-            }
-          },
-          "response": [
-            {
-              "id": "443a19f9-4a9e-4bf6-9ba4-b66f09b7245f",
-              "name": "Context created",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "context"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "description": {
-                        "content": "",
-                        "type": "text/plain"
-                      },
-                      "type": "any",
-                      "value": "{{baseUrl}}",
-                      "key": "baseUrl"
-                    }
-                  ]
-                },
-                "method": "POST",
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"context\": \"<string>\",\n  \"replicationGroup\": \"<string>\",\n  \"nodes\": [\n    \"<object>\",\n    \"<object>\"\n  ]\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                }
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "27da631e-8fa5-42ca-9c5d-7cf7d4e7cb64",
-          "name": "Axon Framework - Get a Context",
-          "request": {
-            "name": "Axon Framework - Get a Context",
-            "description": {
-              "content": "Returns details of a specific context.",
-              "type": "text/plain"
             },
             "url": {
-              "path": [
-                "context",
-                ":contextName"
-              ],
+              "raw": "{{baseUrl}}/context",
               "host": [
                 "{{baseUrl}}"
               ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "contextName",
-                  "description": "(Required) "
-                },
-                {
-                  "description": {
-                    "content": "",
-                    "type": "text/plain"
-                  },
-                  "type": "any",
-                  "value": "{{baseUrl}}",
-                  "key": "baseUrl"
-                }
+              "path": [
+                "context"
               ]
             },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": null
+            "description": "Creates a new application context."
           },
           "response": [
             {
-              "id": "9b58e92a-8218-4360-96d9-bb80aa93cc05",
-              "name": "Successful response",
+              "id": "0efc39ee-fcae-4c60-9aa6-47a34257a3b0",
+              "name": "Context created",
               "originalRequest": {
-                "url": {
-                  "path": [
-                    "context",
-                    ":contextName"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "contextName",
-                      "description": "(Required) "
-                    },
-                    {
-                      "description": {
-                        "content": "",
-                        "type": "text/plain"
-                      },
-                      "type": "any",
-                      "value": "{{baseUrl}}",
-                      "key": "baseUrl"
-                    }
-                  ]
-                },
+                "method": "POST",
                 "header": [
                   {
-                    "key": "Accept",
+                    "key": "Content-Type",
                     "value": "application/json"
                   }
                 ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"context\": \"string\",\n  \"leader\": \"string\",\n  \"roles\": [\n    {\n      \"node\": \"string\",\n      \"role\": \"string\"\n    },\n    {\n      \"node\": \"string\",\n      \"role\": \"string\"\n    }\n  ]\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "0055d881-46b5-4a87-a6c5-512972a8d3ed",
-          "name": "Axon Framework - Delete a Context",
-          "request": {
-            "name": "Axon Framework - Delete a Context",
-            "description": {
-              "content": "Deletes an application context.",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "context",
-                ":contextName"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "contextName",
-                  "description": "(Required) "
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"context\": \"<string>\",\n  \"replicationGroup\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
                 },
-                {
-                  "description": {
-                    "content": "",
-                    "type": "text/plain"
-                  },
-                  "type": "any",
-                  "value": "{{baseUrl}}",
-                  "key": "baseUrl"
-                }
-              ]
-            },
-            "method": "DELETE",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "4d2521c4-6277-450b-95ae-e4e8f8448a6b",
-              "name": "Context deleted",
-              "originalRequest": {
                 "url": {
-                  "path": [
-                    "context",
-                    ":contextName"
-                  ],
+                  "raw": "{{baseUrl}}/context",
                   "host": [
                     "{{baseUrl}}"
                   ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "contextName",
-                      "description": "(Required) "
-                    },
-                    {
-                      "description": {
-                        "content": "",
-                        "type": "text/plain"
-                      },
-                      "type": "any",
-                      "value": "{{baseUrl}}",
-                      "key": "baseUrl"
-                    }
+                  "path": [
+                    "context"
                   ]
-                },
-                "method": "DELETE",
-                "body": {}
+                }
               },
               "status": "OK",
               "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
+              "_postman_previewlanguage": "text",
+              "header": [],
               "cookie": [],
-              "_postman_previewlanguage": "text"
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-10-22T02:23:03.000Z",
+              "updatedAt": "2026-10-22T02:23:03.000Z",
+              "uid": "35240-0efc39ee-fcae-4c60-9aa6-47a34257a3b0"
             }
           ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
+          "createdAt": "2026-10-22T02:23:03.000Z",
+          "updatedAt": "2026-10-22T02:23:03.000Z",
+          "uid": "35240-f6e55ee3-74cf-46a0-8fa8-b7d685d4350c"
         }
       ],
-      "event": []
+      "id": "0f46faa1-986b-49b1-9de3-8a2238535b92",
+      "createdAt": "2026-10-22T02:23:03.000Z",
+      "updatedAt": "2026-10-22T02:23:03.000Z",
+      "uid": "35240-0f46faa1-986b-49b1-9de3-8a2238535b92"
     }
   ],
-  "event": [],
   "variable": [
     {
-      "description": {
-        "content": "",
-        "type": "text/plain"
-      },
-      "type": "any",
-      "value": "http://localhost:8024",
-      "key": "baseUrl"
-    },
-    {
-      "type": "string",
-      "value": "{{baseUrl}}/v1",
-      "key": "baseUrl"
+      "key": "baseUrl",
+      "value": "http://localhost:8024"
     }
-  ],
-  "info": {
-    "_postman_id": "a14426c5-4f87-441b-9810-7da8818fa75a",
-    "name": "Axon Server REST Applications Contexts API",
-    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-    "description": {
-      "content": "The Axon Server REST API provides HTTP endpoints for managing the Axon Server event store, command routing, query handling, application contexts, users, and cluster configuration.\n\nContact Support:\n Name: AxonIQ",
-      "type": "text/plain"
-    }
-  }
+  ]
 }

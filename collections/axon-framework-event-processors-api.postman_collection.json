@@ -1,374 +1,316 @@
 {
+  "info": {
+    "_postman_id": "c55aa3a4-c78b-4139-91f4-4bfe75095eb4",
+    "name": "Axon Server REST Event Processors API",
+    "description": "The Axon Server REST API provides HTTP endpoints for managing the Axon Server event store, command routing, query handling, application contexts, users, and cluster configuration.\n\nContact Support:\n Name: AxonIQ",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-22T02:23:09.000Z",
+    "updatedAt": "2026-10-22T02:23:09.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-c55aa3a4-c78b-4139-91f4-4bfe75095eb4"
+  },
   "item": [
     {
-      "id": "93161182-0672-4cb9-bcce-521abc1fa46f",
-      "name": "Event Processors",
-      "description": {
-        "content": "",
-        "type": "text/plain"
-      },
+      "name": "processors",
       "item": [
         {
-          "id": "81322a6e-0193-4e51-bfa0-dd171b4d5328",
-          "name": "Axon Framework - List Event Processors",
-          "request": {
-            "name": "Axon Framework - List Event Processors",
-            "description": {
-              "content": "Returns all tracking event processors and their status.",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "processors"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [
+          "name": "{processorName}",
+          "item": [
+            {
+              "name": "pause",
+              "item": [
                 {
-                  "disabled": false,
-                  "key": "context",
-                  "value": "<string>"
-                }
-              ],
-              "variable": [
-                {
-                  "description": {
-                    "content": "",
-                    "type": "text/plain"
+                  "name": "Axon Framework - Pause an Event Processor",
+                  "id": "c7b69fa5-efd4-4cd1-bf62-f685ccaa7735",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
                   },
-                  "type": "any",
-                  "value": "{{baseUrl}}",
-                  "key": "baseUrl"
+                  "request": {
+                    "method": "PATCH",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/processors/:processorName/pause?context=<string>&tokenStoreIdentifier=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "processors",
+                        ":processorName",
+                        "pause"
+                      ],
+                      "query": [
+                        {
+                          "key": "context",
+                          "value": "<string>"
+                        },
+                        {
+                          "key": "tokenStoreIdentifier",
+                          "value": "<string>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "id": "72946a0d-5724-49d9-9541-cb1c3475ceff",
+                          "key": "processorName",
+                          "value": "<string>",
+                          "description": "(Required) "
+                        }
+                      ]
+                    },
+                    "description": "Pauses a tracking event processor."
+                  },
+                  "response": [
+                    {
+                      "id": "bbe4f283-254d-49a7-a5d9-51c7b72b07d5",
+                      "name": "Event processor paused",
+                      "originalRequest": {
+                        "method": "PATCH",
+                        "header": [],
+                        "url": {
+                          "raw": "{{baseUrl}}/processors/:processorName/pause?context=<string>&tokenStoreIdentifier=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "processors",
+                            ":processorName",
+                            "pause"
+                          ],
+                          "query": [
+                            {
+                              "key": "context",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "tokenStoreIdentifier",
+                              "value": "<string>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "processorName"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-10-22T02:23:09.000Z",
+                      "updatedAt": "2026-10-22T02:23:09.000Z",
+                      "uid": "35240-bbe4f283-254d-49a7-a5d9-51c7b72b07d5"
+                    }
+                  ],
+                  "createdAt": "2026-10-22T02:23:09.000Z",
+                  "updatedAt": "2026-10-22T02:23:09.000Z",
+                  "uid": "35240-c7b69fa5-efd4-4cd1-bf62-f685ccaa7735"
                 }
-              ]
+              ],
+              "id": "e8d5ac03-d26e-4f26-940d-8021909dab52",
+              "createdAt": "2026-10-22T02:23:09.000Z",
+              "updatedAt": "2026-10-22T02:23:09.000Z",
+              "uid": "35240-e8d5ac03-d26e-4f26-940d-8021909dab52"
             },
+            {
+              "name": "start",
+              "item": [
+                {
+                  "name": "Axon Framework - Start an Event Processor",
+                  "id": "c1f2c467-c276-4664-85b5-6f8ae8162b0d",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "PATCH",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/processors/:processorName/start?context=<string>&tokenStoreIdentifier=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "processors",
+                        ":processorName",
+                        "start"
+                      ],
+                      "query": [
+                        {
+                          "key": "context",
+                          "value": "<string>"
+                        },
+                        {
+                          "key": "tokenStoreIdentifier",
+                          "value": "<string>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "id": "ea3caec5-67cf-4d9c-925e-10e7a2309f1e",
+                          "key": "processorName",
+                          "value": "<string>",
+                          "description": "(Required) "
+                        }
+                      ]
+                    },
+                    "description": "Starts a paused tracking event processor."
+                  },
+                  "response": [
+                    {
+                      "id": "53e62b4c-850e-48eb-830e-adac66d8ff04",
+                      "name": "Event processor started",
+                      "originalRequest": {
+                        "method": "PATCH",
+                        "header": [],
+                        "url": {
+                          "raw": "{{baseUrl}}/processors/:processorName/start?context=<string>&tokenStoreIdentifier=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "processors",
+                            ":processorName",
+                            "start"
+                          ],
+                          "query": [
+                            {
+                              "key": "context",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "tokenStoreIdentifier",
+                              "value": "<string>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "processorName"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-10-22T02:23:09.000Z",
+                      "updatedAt": "2026-10-22T02:23:09.000Z",
+                      "uid": "35240-53e62b4c-850e-48eb-830e-adac66d8ff04"
+                    }
+                  ],
+                  "createdAt": "2026-10-22T02:23:09.000Z",
+                  "updatedAt": "2026-10-22T02:23:09.000Z",
+                  "uid": "35240-c1f2c467-c276-4664-85b5-6f8ae8162b0d"
+                }
+              ],
+              "id": "570f136d-e5f4-48eb-9548-d5f68f7f2a8f",
+              "createdAt": "2026-10-22T02:23:09.000Z",
+              "updatedAt": "2026-10-22T02:23:09.000Z",
+              "uid": "35240-570f136d-e5f4-48eb-9548-d5f68f7f2a8f"
+            }
+          ],
+          "id": "b50c4091-36a1-453a-93e2-09e74e58d139",
+          "createdAt": "2026-10-22T02:23:09.000Z",
+          "updatedAt": "2026-10-22T02:23:09.000Z",
+          "uid": "35240-b50c4091-36a1-453a-93e2-09e74e58d139"
+        },
+        {
+          "name": "Axon Framework - List Event Processors",
+          "id": "cea7cd19-4a76-47d6-b322-62453ff3366c",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
             "header": [
               {
                 "key": "Accept",
                 "value": "application/json"
               }
             ],
-            "method": "GET",
-            "auth": null
+            "url": {
+              "raw": "{{baseUrl}}/processors?context=<string>",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "processors"
+              ],
+              "query": [
+                {
+                  "key": "context",
+                  "value": "<string>"
+                }
+              ]
+            },
+            "description": "Returns all tracking event processors and their status."
           },
           "response": [
             {
-              "id": "7c9dcc89-3dd1-4745-83e9-7ac5c4055595",
+              "id": "2f8cbe07-0265-499a-bf82-d0372381fc7c",
               "name": "Successful response",
               "originalRequest": {
-                "url": {
-                  "path": [
-                    "processors"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "context",
-                      "value": "<string>"
-                    }
-                  ],
-                  "variable": [
-                    {
-                      "description": {
-                        "content": "",
-                        "type": "text/plain"
-                      },
-                      "type": "any",
-                      "value": "{{baseUrl}}",
-                      "key": "baseUrl"
-                    }
-                  ]
-                },
+                "method": "GET",
                 "header": [
                   {
                     "key": "Accept",
                     "value": "application/json"
                   }
                 ],
-                "method": "GET",
-                "body": {}
+                "url": {
+                  "raw": "{{baseUrl}}/processors?context=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "processors"
+                  ],
+                  "query": [
+                    {
+                      "key": "context",
+                      "value": "<string>"
+                    }
+                  ]
+                }
               },
               "status": "OK",
               "code": 200,
+              "_postman_previewlanguage": "json",
               "header": [
                 {
                   "key": "Content-Type",
                   "value": "application/json"
                 }
               ],
-              "body": "[\n  {\n    \"name\": \"string\",\n    \"mode\": \"string\",\n    \"isStreaming\": true,\n    \"fullName\": \"string\",\n    \"tokenStoreIdentifier\": \"string\",\n    \"activeThreads\": 5321,\n    \"canPause\": true,\n    \"isRunning\": false,\n    \"isError\": false\n  },\n  {\n    \"name\": \"string\",\n    \"mode\": \"string\",\n    \"isStreaming\": true,\n    \"fullName\": \"string\",\n    \"tokenStoreIdentifier\": \"string\",\n    \"activeThreads\": 8363,\n    \"canPause\": true,\n    \"isRunning\": false,\n    \"isError\": true\n  }\n]",
               "cookie": [],
-              "_postman_previewlanguage": "json"
+              "responseTime": null,
+              "body": "[\n  {\n    \"name\": \"<string>\",\n    \"mode\": \"<string>\",\n    \"isStreaming\": \"<boolean>\",\n    \"fullName\": \"<string>\",\n    \"tokenStoreIdentifier\": \"<string>\",\n    \"activeThreads\": \"<integer>\",\n    \"canPause\": \"<boolean>\",\n    \"isRunning\": \"<boolean>\",\n    \"isError\": \"<boolean>\"\n  },\n  {\n    \"name\": \"<string>\",\n    \"mode\": \"<string>\",\n    \"isStreaming\": \"<boolean>\",\n    \"fullName\": \"<string>\",\n    \"tokenStoreIdentifier\": \"<string>\",\n    \"activeThreads\": \"<integer>\",\n    \"canPause\": \"<boolean>\",\n    \"isRunning\": \"<boolean>\",\n    \"isError\": \"<boolean>\"\n  }\n]",
+              "createdAt": "2026-10-22T02:23:09.000Z",
+              "updatedAt": "2026-10-22T02:23:09.000Z",
+              "uid": "35240-2f8cbe07-0265-499a-bf82-d0372381fc7c"
             }
           ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "b22733cc-e008-48a0-abd8-41d8a8f2bfce",
-          "name": "Axon Framework - Pause an Event Processor",
-          "request": {
-            "name": "Axon Framework - Pause an Event Processor",
-            "description": {
-              "content": "Pauses a tracking event processor.",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "processors",
-                ":processorName",
-                "pause"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [
-                {
-                  "disabled": false,
-                  "key": "context",
-                  "value": "<string>"
-                },
-                {
-                  "disabled": false,
-                  "key": "tokenStoreIdentifier",
-                  "value": "<string>"
-                }
-              ],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "processorName",
-                  "description": "(Required) "
-                },
-                {
-                  "description": {
-                    "content": "",
-                    "type": "text/plain"
-                  },
-                  "type": "any",
-                  "value": "{{baseUrl}}",
-                  "key": "baseUrl"
-                }
-              ]
-            },
-            "method": "PATCH",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "67b199fb-e47e-425d-a9cd-edfb18edf406",
-              "name": "Event processor paused",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "processors",
-                    ":processorName",
-                    "pause"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "context",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "tokenStoreIdentifier",
-                      "value": "<string>"
-                    }
-                  ],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "processorName",
-                      "description": "(Required) "
-                    },
-                    {
-                      "description": {
-                        "content": "",
-                        "type": "text/plain"
-                      },
-                      "type": "any",
-                      "value": "{{baseUrl}}",
-                      "key": "baseUrl"
-                    }
-                  ]
-                },
-                "method": "PATCH",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "91718752-f0f3-4c04-9596-64b9e691926b",
-          "name": "Axon Framework - Start an Event Processor",
-          "request": {
-            "name": "Axon Framework - Start an Event Processor",
-            "description": {
-              "content": "Starts a paused tracking event processor.",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "processors",
-                ":processorName",
-                "start"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [
-                {
-                  "disabled": false,
-                  "key": "context",
-                  "value": "<string>"
-                },
-                {
-                  "disabled": false,
-                  "key": "tokenStoreIdentifier",
-                  "value": "<string>"
-                }
-              ],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "processorName",
-                  "description": "(Required) "
-                },
-                {
-                  "description": {
-                    "content": "",
-                    "type": "text/plain"
-                  },
-                  "type": "any",
-                  "value": "{{baseUrl}}",
-                  "key": "baseUrl"
-                }
-              ]
-            },
-            "method": "PATCH",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "baa624e9-8197-4484-9eeb-b33abc014e88",
-              "name": "Event processor started",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "processors",
-                    ":processorName",
-                    "start"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "context",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "tokenStoreIdentifier",
-                      "value": "<string>"
-                    }
-                  ],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "processorName",
-                      "description": "(Required) "
-                    },
-                    {
-                      "description": {
-                        "content": "",
-                        "type": "text/plain"
-                      },
-                      "type": "any",
-                      "value": "{{baseUrl}}",
-                      "key": "baseUrl"
-                    }
-                  ]
-                },
-                "method": "PATCH",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
+          "createdAt": "2026-10-22T02:23:09.000Z",
+          "updatedAt": "2026-10-22T02:23:09.000Z",
+          "uid": "35240-cea7cd19-4a76-47d6-b322-62453ff3366c"
         }
       ],
-      "event": []
+      "id": "0b852768-0d8e-49c2-9cb6-2aa0212cfab8",
+      "createdAt": "2026-10-22T02:23:09.000Z",
+      "updatedAt": "2026-10-22T02:23:09.000Z",
+      "uid": "35240-0b852768-0d8e-49c2-9cb6-2aa0212cfab8"
     }
   ],
-  "event": [],
   "variable": [
     {
-      "description": {
-        "content": "",
-        "type": "text/plain"
-      },
-      "type": "any",
-      "value": "http://localhost:8024",
-      "key": "baseUrl"
-    },
-    {
-      "type": "string",
-      "value": "{{baseUrl}}/v1",
-      "key": "baseUrl"
+      "key": "baseUrl",
+      "value": "http://localhost:8024"
     }
-  ],
-  "info": {
-    "_postman_id": "dd095f00-d1cc-4e2e-a411-99edfc1eb5c3",
-    "name": "Axon Server REST Applications Event Processors API",
-    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-    "description": {
-      "content": "The Axon Server REST API provides HTTP endpoints for managing the Axon Server event store, command routing, query handling, application contexts, users, and cluster configuration.\n\nContact Support:\n Name: AxonIQ",
-      "type": "text/plain"
-    }
-  }
+  ]
 }

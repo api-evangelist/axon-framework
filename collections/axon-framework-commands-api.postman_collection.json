@@ -1,142 +1,109 @@
 {
+  "info": {
+    "_postman_id": "b3e73173-cc60-4a87-9e1d-d335795e7f06",
+    "name": "Axon Server REST Commands API",
+    "description": "The Axon Server REST API provides HTTP endpoints for managing the Axon Server event store, command routing, query handling, application contexts, users, and cluster configuration.\n\nContact Support:\n Name: AxonIQ",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-22T02:22:56.000Z",
+    "updatedAt": "2026-10-22T02:22:56.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-b3e73173-cc60-4a87-9e1d-d335795e7f06"
+  },
   "item": [
     {
-      "id": "b41ed23b-59a0-4b96-8ad7-7a7e84150116",
-      "name": "Commands",
-      "description": {
-        "content": "",
-        "type": "text/plain"
-      },
+      "name": "commands",
       "item": [
         {
-          "id": "0eba207f-65a2-4406-8cec-5cd3981243a8",
           "name": "Axon Framework - List Command Handlers",
+          "id": "e3977173-92fe-4260-a85a-cfcd5dc3aba5",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
           "request": {
-            "name": "Axon Framework - List Command Handlers",
-            "description": {
-              "content": "Returns registered command handlers and their routing information.",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "commands"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [
-                {
-                  "disabled": false,
-                  "key": "context",
-                  "value": "<string>"
-                }
-              ],
-              "variable": [
-                {
-                  "description": {
-                    "content": "",
-                    "type": "text/plain"
-                  },
-                  "type": "any",
-                  "value": "{{baseUrl}}",
-                  "key": "baseUrl"
-                }
-              ]
-            },
+            "method": "GET",
             "header": [
               {
                 "key": "Accept",
                 "value": "application/json"
               }
             ],
-            "method": "GET",
-            "auth": null
+            "url": {
+              "raw": "{{baseUrl}}/commands?context=<string>",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "commands"
+              ],
+              "query": [
+                {
+                  "key": "context",
+                  "value": "<string>"
+                }
+              ]
+            },
+            "description": "Returns registered command handlers and their routing information."
           },
           "response": [
             {
-              "id": "44c446ff-347e-4555-bd9a-96a5a1cf82e2",
+              "id": "efbe4a40-cfed-4773-b6c2-e20138a0bd87",
               "name": "Successful response",
               "originalRequest": {
-                "url": {
-                  "path": [
-                    "commands"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "context",
-                      "value": "<string>"
-                    }
-                  ],
-                  "variable": [
-                    {
-                      "description": {
-                        "content": "",
-                        "type": "text/plain"
-                      },
-                      "type": "any",
-                      "value": "{{baseUrl}}",
-                      "key": "baseUrl"
-                    }
-                  ]
-                },
+                "method": "GET",
                 "header": [
                   {
                     "key": "Accept",
                     "value": "application/json"
                   }
                 ],
-                "method": "GET",
-                "body": {}
+                "url": {
+                  "raw": "{{baseUrl}}/commands?context=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "commands"
+                  ],
+                  "query": [
+                    {
+                      "key": "context",
+                      "value": "<string>"
+                    }
+                  ]
+                }
               },
               "status": "OK",
               "code": 200,
+              "_postman_previewlanguage": "json",
               "header": [
                 {
                   "key": "Content-Type",
                   "value": "application/json"
                 }
               ],
-              "body": "[\n  {\n    \"command\": \"string\",\n    \"clientId\": \"string\",\n    \"componentName\": \"string\"\n  },\n  {\n    \"command\": \"string\",\n    \"clientId\": \"string\",\n    \"componentName\": \"string\"\n  }\n]",
               "cookie": [],
-              "_postman_previewlanguage": "json"
+              "responseTime": null,
+              "body": "[\n  {\n    \"command\": \"<string>\",\n    \"clientId\": \"<string>\",\n    \"componentName\": \"<string>\"\n  },\n  {\n    \"command\": \"<string>\",\n    \"clientId\": \"<string>\",\n    \"componentName\": \"<string>\"\n  }\n]",
+              "createdAt": "2026-10-22T02:22:57.000Z",
+              "updatedAt": "2026-10-22T02:22:57.000Z",
+              "uid": "35240-efbe4a40-cfed-4773-b6c2-e20138a0bd87"
             }
           ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
+          "createdAt": "2026-10-22T02:22:57.000Z",
+          "updatedAt": "2026-10-22T02:22:57.000Z",
+          "uid": "35240-e3977173-92fe-4260-a85a-cfcd5dc3aba5"
         }
       ],
-      "event": []
+      "id": "fff8e174-27e0-43b8-84e7-ca6a33228c6c",
+      "createdAt": "2026-10-22T02:22:56.000Z",
+      "updatedAt": "2026-10-22T02:22:56.000Z",
+      "uid": "35240-fff8e174-27e0-43b8-84e7-ca6a33228c6c"
     }
   ],
-  "event": [],
   "variable": [
     {
-      "description": {
-        "content": "",
-        "type": "text/plain"
-      },
-      "type": "any",
-      "value": "http://localhost:8024",
-      "key": "baseUrl"
-    },
-    {
-      "type": "string",
-      "value": "{{baseUrl}}/v1",
-      "key": "baseUrl"
+      "key": "baseUrl",
+      "value": "http://localhost:8024"
     }
-  ],
-  "info": {
-    "_postman_id": "17db2f05-3816-452c-a77b-1a9d0b77e023",
-    "name": "Axon Server REST Applications Commands API",
-    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-    "description": {
-      "content": "The Axon Server REST API provides HTTP endpoints for managing the Axon Server event store, command routing, query handling, application contexts, users, and cluster configuration.\n\nContact Support:\n Name: AxonIQ",
-      "type": "text/plain"
-    }
-  }
+  ]
 }

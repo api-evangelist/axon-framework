@@ -1,142 +1,109 @@
 {
+  "info": {
+    "_postman_id": "97b5d595-78d1-460f-a712-5b328c308a6c",
+    "name": "Axon Server REST Queries API",
+    "description": "The Axon Server REST API provides HTTP endpoints for managing the Axon Server event store, command routing, query handling, application contexts, users, and cluster configuration.\n\nContact Support:\n Name: AxonIQ",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-22T02:23:21.000Z",
+    "updatedAt": "2026-10-22T02:23:21.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-97b5d595-78d1-460f-a712-5b328c308a6c"
+  },
   "item": [
     {
-      "id": "ec11b768-101d-4a73-9635-1ac43d4e407f",
-      "name": "Queries",
-      "description": {
-        "content": "",
-        "type": "text/plain"
-      },
+      "name": "queries",
       "item": [
         {
-          "id": "303a5b4c-4b38-4359-bc55-cd50af817509",
           "name": "Axon Framework - List Query Handlers",
+          "id": "d1b264ed-af82-4642-868a-8c6f2cbe5295",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
           "request": {
-            "name": "Axon Framework - List Query Handlers",
-            "description": {
-              "content": "Returns registered query handlers.",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "queries"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [
-                {
-                  "disabled": false,
-                  "key": "context",
-                  "value": "<string>"
-                }
-              ],
-              "variable": [
-                {
-                  "description": {
-                    "content": "",
-                    "type": "text/plain"
-                  },
-                  "type": "any",
-                  "value": "{{baseUrl}}",
-                  "key": "baseUrl"
-                }
-              ]
-            },
+            "method": "GET",
             "header": [
               {
                 "key": "Accept",
                 "value": "application/json"
               }
             ],
-            "method": "GET",
-            "auth": null
+            "url": {
+              "raw": "{{baseUrl}}/queries?context=<string>",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "queries"
+              ],
+              "query": [
+                {
+                  "key": "context",
+                  "value": "<string>"
+                }
+              ]
+            },
+            "description": "Returns registered query handlers."
           },
           "response": [
             {
-              "id": "3e8331c3-c9be-49bd-9de8-27678961720b",
+              "id": "f42df16f-2d41-4358-816b-8d621cb36da8",
               "name": "Successful response",
               "originalRequest": {
-                "url": {
-                  "path": [
-                    "queries"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "context",
-                      "value": "<string>"
-                    }
-                  ],
-                  "variable": [
-                    {
-                      "description": {
-                        "content": "",
-                        "type": "text/plain"
-                      },
-                      "type": "any",
-                      "value": "{{baseUrl}}",
-                      "key": "baseUrl"
-                    }
-                  ]
-                },
+                "method": "GET",
                 "header": [
                   {
                     "key": "Accept",
                     "value": "application/json"
                   }
                 ],
-                "method": "GET",
-                "body": {}
+                "url": {
+                  "raw": "{{baseUrl}}/queries?context=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "queries"
+                  ],
+                  "query": [
+                    {
+                      "key": "context",
+                      "value": "<string>"
+                    }
+                  ]
+                }
               },
               "status": "OK",
               "code": 200,
+              "_postman_previewlanguage": "json",
               "header": [
                 {
                   "key": "Content-Type",
                   "value": "application/json"
                 }
               ],
-              "body": "[\n  {\n    \"query\": \"string\",\n    \"clientId\": \"string\",\n    \"componentName\": \"string\",\n    \"resultName\": \"string\"\n  },\n  {\n    \"query\": \"string\",\n    \"clientId\": \"string\",\n    \"componentName\": \"string\",\n    \"resultName\": \"string\"\n  }\n]",
               "cookie": [],
-              "_postman_previewlanguage": "json"
+              "responseTime": null,
+              "body": "[\n  {\n    \"query\": \"<string>\",\n    \"clientId\": \"<string>\",\n    \"componentName\": \"<string>\",\n    \"resultName\": \"<string>\"\n  },\n  {\n    \"query\": \"<string>\",\n    \"clientId\": \"<string>\",\n    \"componentName\": \"<string>\",\n    \"resultName\": \"<string>\"\n  }\n]",
+              "createdAt": "2026-10-22T02:23:21.000Z",
+              "updatedAt": "2026-10-22T02:23:21.000Z",
+              "uid": "35240-f42df16f-2d41-4358-816b-8d621cb36da8"
             }
           ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
+          "createdAt": "2026-10-22T02:23:21.000Z",
+          "updatedAt": "2026-10-22T02:23:21.000Z",
+          "uid": "35240-d1b264ed-af82-4642-868a-8c6f2cbe5295"
         }
       ],
-      "event": []
+      "id": "bc4cd6e4-773f-4543-b816-cd01ad308bed",
+      "createdAt": "2026-10-22T02:23:21.000Z",
+      "updatedAt": "2026-10-22T02:23:21.000Z",
+      "uid": "35240-bc4cd6e4-773f-4543-b816-cd01ad308bed"
     }
   ],
-  "event": [],
   "variable": [
     {
-      "description": {
-        "content": "",
-        "type": "text/plain"
-      },
-      "type": "any",
-      "value": "http://localhost:8024",
-      "key": "baseUrl"
-    },
-    {
-      "type": "string",
-      "value": "{{baseUrl}}/v1",
-      "key": "baseUrl"
+      "key": "baseUrl",
+      "value": "http://localhost:8024"
     }
-  ],
-  "info": {
-    "_postman_id": "64e267df-0041-41bc-b914-2c365e9f4f2a",
-    "name": "Axon Server REST Applications Queries API",
-    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-    "description": {
-      "content": "The Axon Server REST API provides HTTP endpoints for managing the Axon Server event store, command routing, query handling, application contexts, users, and cluster configuration.\n\nContact Support:\n Name: AxonIQ",
-      "type": "text/plain"
-    }
-  }
+  ]
 }
