@@ -1,4 +1,4 @@
-# Axon Framework (axon-framework)
+# Axon Framework
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -66,69 +66,198 @@
 
 Axon Framework is a Java framework for building event-driven microservices using CQRS (Command Query Responsibility Segregation) and event sourcing patterns, providing the building blocks to implement scalable and maintainable distributed systems.
 
-**APIs.json:** [https://raw.githubusercontent.com/api-evangelist/axon-framework/refs/heads/main/apis.yml](https://raw.githubusercontent.com/api-evangelist/axon-framework/refs/heads/main/apis.yml)
+**Areas:** CQRS · Event Sourcing · Event-Driven · Java · Messaging · Microservices
 
-## Scope
+## Axon Framework on APIs.io
 
-- **Type:** Index
+Everything profiled for Axon Framework is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/axon-framework/](https://apis.io/providers/axon-framework/)** — or go straight to one of the APIs or properties below.
 
-## Tags
+### APIs (9)
 
-- CQRS
-- Event Sourcing
-- Event-Driven
-- Java
-- Messaging
-- Microservices
+- [Axon Framework Applications API](https://apis.io/apis/axon-framework/axon-framework-applications-api/) — The Applications API from Axon Framework — 1 operation(s) for applications.
+- [Axon Framework Cluster API](https://apis.io/apis/axon-framework/axon-framework-cluster-api/) — The Cluster API from Axon Framework — 2 operation(s) for cluster.
+- [Axon Framework Commands API](https://apis.io/apis/axon-framework/axon-framework-commands-api/) — The Commands API from Axon Framework — 1 operation(s) for commands.
+- [Axon Framework Contexts API](https://apis.io/apis/axon-framework/axon-framework-contexts-api/) — The Contexts API from Axon Framework — 2 operation(s) for contexts.
+- [Axon Framework Event Processors API](https://apis.io/apis/axon-framework/axon-framework-event-processors-api/) — The Event Processors API from Axon Framework — 3 operation(s) for event processors.
+- [Axon Framework Events API](https://apis.io/apis/axon-framework/axon-framework-events-api/) — The Events API from Axon Framework — 2 operation(s) for events.
+- [Axon Framework Queries API](https://apis.io/apis/axon-framework/axon-framework-queries-api/) — The Queries API from Axon Framework — 1 operation(s) for queries.
+- [Axon Framework Snapshots API](https://apis.io/apis/axon-framework/axon-framework-snapshots-api/) — The Snapshots API from Axon Framework — 1 operation(s) for snapshots.
+- [Axon Framework Users API](https://apis.io/apis/axon-framework/axon-framework-users-api/) — The Users API from Axon Framework — 2 operation(s) for users.
 
-## Timestamps
+### Published properties
 
-- **Created:** 2026-03-26
-- **Modified:** 2026-04-19
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-## APIs
+#### Agentic access (1)
 
-### Axon Framework
+Which operations an agent can call, which act, and which need a human in the loop.
 
-Axon Framework is a Java framework for building event-driven microservices using CQRS and event sourcing patterns, providing infrastructure components for command handling, event processing, and query handling in distributed systems.
+- [Axon Framework Agentic Access](https://apis.io/agentic-access/axon-framework/axon-framework-agentic-access/)
 
-- **Human URL:** [https://www.axoniq.io/products/axon-framework](https://www.axoniq.io/products/axon-framework)
-- **Base URL:** `https://axonserver:8024`
+#### JSON Schema (10)
 
-#### Tags
+The data models the API reads and writes.
 
-- CQRS
-- Event Sourcing
-- Event-Driven
-- Java
-- Messaging
-- Microservices
+- [Application](https://apis.io/schemas/axon-framework/axon-application/)
+- [ClusterNode](https://apis.io/schemas/axon-framework/axon-clusternode/)
+- [CommandHandler](https://apis.io/schemas/axon-framework/axon-commandhandler/)
+- [Context](https://apis.io/schemas/axon-framework/axon-context/)
+- [CreateContextRequest](https://apis.io/schemas/axon-framework/axon-createcontextrequest/)
+- [CreateUserRequest](https://apis.io/schemas/axon-framework/axon-createuserrequest/)
+- [Event](https://apis.io/schemas/axon-framework/axon-event/)
+- [EventProcessor](https://apis.io/schemas/axon-framework/axon-eventprocessor/)
+- [QueryHandler](https://apis.io/schemas/axon-framework/axon-queryhandler/)
+- [User](https://apis.io/schemas/axon-framework/axon-user/)
 
-#### Properties
+#### JSON Structure (10)
 
-- [OpenAPI](openapi/axon-server-api.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/axon-server-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/axon-server-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [API Reference](https://docs.axoniq.io/axon-server/administration/axon-server-api)
+Data models expressed in JSON Structure.
 
-## Common Properties
+- [Axon Application Structure](https://apis.io/json-structure/axon-framework/axon-application-structure/)
+- [Axon Clusternode Structure](https://apis.io/json-structure/axon-framework/axon-clusternode-structure/)
+- [Axon Commandhandler Structure](https://apis.io/json-structure/axon-framework/axon-commandhandler-structure/)
+- [Axon Context Structure](https://apis.io/json-structure/axon-framework/axon-context-structure/)
+- [Axon Createcontextrequest Structure](https://apis.io/json-structure/axon-framework/axon-createcontextrequest-structure/)
+- [Axon Createuserrequest Structure](https://apis.io/json-structure/axon-framework/axon-createuserrequest-structure/)
+- [Axon Event Structure](https://apis.io/json-structure/axon-framework/axon-event-structure/)
+- [Axon Eventprocessor Structure](https://apis.io/json-structure/axon-framework/axon-eventprocessor-structure/)
+- [Axon Queryhandler Structure](https://apis.io/json-structure/axon-framework/axon-queryhandler-structure/)
+- [Axon User Structure](https://apis.io/json-structure/axon-framework/axon-user-structure/)
 
-- [LinkedIn](https://www.linkedin.com/company/axoniq)
+#### JSON-LD (1)
+
+Linked-data contexts for the provider's vocabulary.
+
+- [Axon Framework Context](https://apis.io/jsonld/axon-framework/axon-framework-context/)
+
+#### Vocabulary (1)
+
+The provider's domain terms, defined.
+
+- [Axon Framework Vocabulary](https://apis.io/vocabularies/axon-framework/axon-framework-vocabulary/)
+
+#### Examples (10)
+
+Example requests and responses.
+
+- [Axon Application Example](https://apis.io/examples/axon-framework/axon-application-example/)
+- [Axon Clusternode Example](https://apis.io/examples/axon-framework/axon-clusternode-example/)
+- [Axon Commandhandler Example](https://apis.io/examples/axon-framework/axon-commandhandler-example/)
+- [Axon Context Example](https://apis.io/examples/axon-framework/axon-context-example/)
+- [Axon Createcontextrequest Example](https://apis.io/examples/axon-framework/axon-createcontextrequest-example/)
+- [Axon Createuserrequest Example](https://apis.io/examples/axon-framework/axon-createuserrequest-example/)
+- [Axon Event Example](https://apis.io/examples/axon-framework/axon-event-example/)
+- [Axon Eventprocessor Example](https://apis.io/examples/axon-framework/axon-eventprocessor-example/)
+- [Axon Queryhandler Example](https://apis.io/examples/axon-framework/axon-queryhandler-example/)
+- [Axon User Example](https://apis.io/examples/axon-framework/axon-user-example/)
+
+#### Collections (10)
+
+Postman and Open Collection request collections.
+
+- [Axon Server REST Applications API](https://apis.io/collections/axon-framework/open-axon-framework-applications-api/)
+- [Axon Server REST Applications Cluster API](https://apis.io/collections/axon-framework/open-axon-framework-cluster-api/)
+- [Axon Server REST Applications Commands API](https://apis.io/collections/axon-framework/open-axon-framework-commands-api/)
+- [Axon Server REST Applications Contexts API](https://apis.io/collections/axon-framework/open-axon-framework-contexts-api/)
+- [Axon Server REST Applications Event Processors API](https://apis.io/collections/axon-framework/open-axon-framework-event-processors-api/)
+- [Axon Server REST Applications Events API](https://apis.io/collections/axon-framework/open-axon-framework-events-api/)
+- [Axon Server REST Applications Queries API](https://apis.io/collections/axon-framework/open-axon-framework-queries-api/)
+- [Axon Server REST Applications Snapshots API](https://apis.io/collections/axon-framework/open-axon-framework-snapshots-api/)
+- [Axon Server REST Applications Users API](https://apis.io/collections/axon-framework/open-axon-framework-users-api/)
+- [Axon Server REST API](https://apis.io/collections/axon-framework/open-axon-server-api/)
+
+#### Governance rules (2)
+
+Spectral rulesets for the provider's contracts.
+
+- [Axon Framework — jsonschema rules](https://apis.io/rules/axon-framework/axon-framework-jsonschema-spectral-rules/)
+- [Axon Framework API Rules](https://apis.io/rules/axon-framework/axon-framework-spectral-rules/)
+
+#### Security (1)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Axon Framework Domain Security](https://apis.io/security/axon-framework/axon-framework-domain-security/)
+
+#### Plans and pricing (1)
+
+Published plans, tiers and prices.
+
+- [Axon Framework Plans Pricing](https://apis.io/plans/axon-framework/axon-framework-plans-pricing/)
+
+#### Rate limits (1)
+
+Published request limits.
+
+- [Axon Framework Rate Limits](https://apis.io/rate-limits/axon-framework/axon-framework-rate-limits/)
+
+#### FinOps (1)
+
+What the API costs to run, by operation.
+
+- [Axon Framework Finops](https://apis.io/finops/axon-framework/axon-framework-finops/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
 - [Website](https://www.axoniq.io/)
 - [Documentation](https://docs.axoniq.io/)
-- [Getting Started](https://docs.axoniq.io/axon-framework/getting-started)
-- [GitHub Repository](https://github.com/AxonFramework/AxonFramework)
-- [Blog](https://www.axoniq.io/blog)
+- [Getting started](https://docs.axoniq.io/axon-framework/getting-started)
 - [Pricing](https://www.axoniq.io/pricing)
-- [Terms of Service](https://www.axoniq.io/terms-and-conditions)
-- [Status Page](https://status.axoniq.io/)
-- [Spectral Rules](rules/axon-framework-spectral-rules.yml)
-- [Vocabulary](vocabulary/axon-framework-vocabulary.yaml)
-- [Features](undefined)
-- [Use Cases](undefined)
-- [Integrations](undefined)
+- [Blog](https://www.axoniq.io/blog)
+- [Terms of service](https://www.axoniq.io/terms-and-conditions)
+- [Status](https://status.axoniq.io/)
 
-## Maintainers
+## API Evangelist rating
 
-**FN:** Kin Lane
-**Email:** kin@apievangelist.com
+**Kin Score 32.9** — thin · rubric 0.24.0 · scored 2026-10-17
+
+| Facet | Score |
+|---|---|
+| Discoverability | 66.1 |
+| Contract quality | 47.1 |
+| Contract governance | 27.3 |
+| Operational transparency | 36.8 |
+| Developer ergonomics | 11.9 |
+| Access clarity | 18.4 |
+
+**Agent readiness 15.4** — agent-aware
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | — |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | — |
+| Rate Limit Signal | derived (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+
+**Regulatory alignment 10.8** — Horizontal (data, software, accessibility, platform)
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/axon-framework/](https://apis.io/providers/axon-framework/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Axon Framework: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/axon-framework/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
